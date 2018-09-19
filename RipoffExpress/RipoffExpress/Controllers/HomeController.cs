@@ -15,7 +15,7 @@ namespace RipoffExpress.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult AccLogin()
         {
             ViewData["Message"] = "Your application description page.";
 
