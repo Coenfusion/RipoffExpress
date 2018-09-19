@@ -11500,23 +11500,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gebruiker\\.nuget\\packages\\": {},
+    "C:\\Users\\coenv\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gebruiker\\Desktop\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
+      "projectUniqueName": "C:\\Users\\coenv\\Desktop\\Alles\\Fontys\\Semester 2\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
       "projectName": "RipoffExpress",
-      "projectPath": "C:\\Users\\gebruiker\\Desktop\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
-      "packagesPath": "C:\\Users\\gebruiker\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gebruiker\\Desktop\\Ripoff\\RipoffExpress\\RipoffExpress\\obj\\",
+      "projectPath": "C:\\Users\\coenv\\Desktop\\Alles\\Fontys\\Semester 2\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
+      "packagesPath": "C:\\Users\\coenv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\coenv\\Desktop\\Alles\\Fontys\\Semester 2\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\coenv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
