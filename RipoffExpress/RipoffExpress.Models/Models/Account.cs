@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RipoffExpress.Models.Models
 {
-    class Account
+    public class Account
     {
+
     }
 }

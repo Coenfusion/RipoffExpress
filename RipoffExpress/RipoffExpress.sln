@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RipoffExpress", "RipoffExpress\RipoffExpress.csproj", "{4C03AD9B-BEF8-4108-96F3-B342F4ABB4D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RipoffExpress", "RipoffExpress\RipoffExpress.csproj", "{4C03AD9B-BEF8-4108-96F3-B342F4ABB4D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RipoffExpress.DAL", "RipoffExpress.DAL\RipoffExpress.DAL.csproj", "{7E3345F0-1DA3-4048-881F-BE852E665333}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RipoffExpress.Logic", "RipoffExpress.Logic\RipoffExpress.Logic.csproj", "{F9254FBE-C417-4894-8B00-33AFE139E779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RipoffExpress.Models", "RipoffExpress.Models\RipoffExpress.Models.csproj", "{5D86C9C9-E48F-4C1F-9FFE-2560CCCFDCF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RipoffExpress.Repository", "RipoffExpress.Repository\RipoffExpress.Repository.csproj", "{2152679C-E512-4021-AAC6-8D88E3253193}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{4C03AD9B-BEF8-4108-96F3-B342F4ABB4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C03AD9B-BEF8-4108-96F3-B342F4ABB4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C03AD9B-BEF8-4108-96F3-B342F4ABB4D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3345F0-1DA3-4048-881F-BE852E665333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3345F0-1DA3-4048-881F-BE852E665333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3345F0-1DA3-4048-881F-BE852E665333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3345F0-1DA3-4048-881F-BE852E665333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9254FBE-C417-4894-8B00-33AFE139E779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9254FBE-C417-4894-8B00-33AFE139E779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9254FBE-C417-4894-8B00-33AFE139E779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9254FBE-C417-4894-8B00-33AFE139E779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D86C9C9-E48F-4C1F-9FFE-2560CCCFDCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D86C9C9-E48F-4C1F-9FFE-2560CCCFDCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D86C9C9-E48F-4C1F-9FFE-2560CCCFDCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D86C9C9-E48F-4C1F-9FFE-2560CCCFDCF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2152679C-E512-4021-AAC6-8D88E3253193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2152679C-E512-4021-AAC6-8D88E3253193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2152679C-E512-4021-AAC6-8D88E3253193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2152679C-E512-4021-AAC6-8D88E3253193}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

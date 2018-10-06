@@ -62,3 +62,38 @@ C:\Users\coenv\Desktop\Alles\Fontys\Semester 2\Ripoff\RipoffExpress\RipoffExpres
 C:\Users\coenv\Desktop\Alles\Fontys\Semester 2\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.dll
 C:\Users\coenv\Desktop\Alles\Fontys\Semester 2\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.pdb
 C:\Users\coenv\Desktop\Alles\Fontys\Semester 2\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.csproj.CopyComplete
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.deps.json
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.runtimeconfig.json
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.runtimeconfig.dev.json
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Views.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Views.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.csprojAssemblyReference.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.csproj.CoreCompileInputs.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.RazorAssemblyInfo.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.RazorAssemblyInfo.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.AssemblyInfoInputs.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.AssemblyInfo.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.TagHelpers.input.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.TagHelpers.output.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.RazorCoreGenerate.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.RazorTargetAssemblyInfo.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.RazorTargetAssemblyInfo.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.Views.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.csproj.CopyComplete
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Account\AccountLogin.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Account\AccountRegister.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Products\ProductWishlist.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Products\ProductShoppingCart.g.cshtml.cs
