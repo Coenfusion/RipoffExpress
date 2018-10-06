@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\coenv\\Desktop\\Alles\\Fontys\\Semester 2\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
+      "projectUniqueName": "C:\\Users\\coenv\\Desktop\\RipOffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
       "projectName": "RipoffExpress",
-      "projectPath": "C:\\Users\\coenv\\Desktop\\Alles\\Fontys\\Semester 2\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
+      "projectPath": "C:\\Users\\coenv\\Desktop\\RipOffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.csproj",
       "packagesPath": "C:\\Users\\coenv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\coenv\\Desktop\\Alles\\Fontys\\Semester 2\\Ripoff\\RipoffExpress\\RipoffExpress\\RipoffExpress\\obj\\",
+      "outputPath": "C:\\Users\\coenv\\Desktop\\RipOffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
