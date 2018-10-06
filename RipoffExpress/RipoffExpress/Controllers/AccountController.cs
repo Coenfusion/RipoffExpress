@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using RipoffExpress.Models.Models;
+using RipoffExpress.Models.AccountModels;
 using RipoffExpress.Logic.Account;
 
 namespace RipoffExpress.Controllers
@@ -17,8 +17,23 @@ namespace RipoffExpress.Controllers
         }
         public IActionResult AccountLogin()
         {
+            ViewData["ErrorMessage"] = ErrorMessage;
             return View();
         }
+        //[HttpPost]
+        //public IActionResult Login(string Email, string Password)
+        //{
+        //    try
+        //    {
+        //        accountLogic.AccountLogin(new AccountLogin() { Email = Email, Password = Password });
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorMessage = ex.Message;
+        //        return RedirectToAction("AccountLogin", "Account");
+        //    }
+        //}
         public IActionResult AccountRegister()
         {
             ViewData["ErrorMessage"] = ErrorMessage;

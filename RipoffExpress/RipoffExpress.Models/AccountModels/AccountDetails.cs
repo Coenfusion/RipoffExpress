@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RipoffExpress.Models
+namespace RipoffExpress.Models.AccountModels
 {
     public class AccountDetails
     {
@@ -22,7 +22,7 @@ namespace RipoffExpress.Models
         [Display(Name = "City")]
         public string City { get; set; }
 
-        [Display(Name = "Province" )]
+        [Display(Name = "Province")]
         public string Province { get; set; }
 
         [Display(Name = "Postal Code")]

@@ -1,5 +1,5 @@
 ﻿using System;
-using RipoffExpress.Models.Models;
+using RipoffExpress.Models.AccountModels;
 using RipoffExpress.DAL.Account;
 
 namespace RipoffExpress.Repository.Account

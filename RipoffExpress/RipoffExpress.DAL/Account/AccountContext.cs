@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using RipoffExpress.Models.Models;
+using RipoffExpress.Models.AccountModels;
 
 namespace RipoffExpress.DAL.Account
 {
