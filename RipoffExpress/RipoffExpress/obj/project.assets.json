@@ -4615,6 +4615,54 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "RipoffExpress.DAL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "RipoffExpress.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RipoffExpress.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RipoffExpress.DAL.dll": {}
+        }
+      },
+      "RipoffExpress.Logic/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "RipoffExpress.DAL": "1.0.0",
+          "RipoffExpress.Models": "1.0.0",
+          "RipoffExpress.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RipoffExpress.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RipoffExpress.Logic.dll": {}
+        }
+      },
+      "RipoffExpress.Models/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/RipoffExpress.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RipoffExpress.Models.dll": {}
+        }
+      },
+      "RipoffExpress.Repository/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "RipoffExpress.DAL": "1.0.0",
+          "RipoffExpress.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RipoffExpress.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RipoffExpress.Repository.dll": {}
+        }
       }
     }
   },
@@ -12208,13 +12256,35 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "RipoffExpress.DAL/1.0.0": {
+      "type": "project",
+      "path": "../RipoffExpress.DAL/RipoffExpress.DAL.csproj",
+      "msbuildProject": "../RipoffExpress.DAL/RipoffExpress.DAL.csproj"
+    },
+    "RipoffExpress.Logic/1.0.0": {
+      "type": "project",
+      "path": "../RipoffExpress.Logic/RipoffExpress.Logic.csproj",
+      "msbuildProject": "../RipoffExpress.Logic/RipoffExpress.Logic.csproj"
+    },
+    "RipoffExpress.Models/1.0.0": {
+      "type": "project",
+      "path": "../RipoffExpress.Models/RipoffExpress.Models.csproj",
+      "msbuildProject": "../RipoffExpress.Models/RipoffExpress.Models.csproj"
+    },
+    "RipoffExpress.Repository/1.0.0": {
+      "type": "project",
+      "path": "../RipoffExpress.Repository/RipoffExpress.Repository.csproj",
+      "msbuildProject": "../RipoffExpress.Repository/RipoffExpress.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
+      "RipoffExpress.Logic >= 1.0.0",
+      "RipoffExpress.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12246,7 +12316,14 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\coenv\\Desktop\\RipOffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.Logic\\RipoffExpress.Logic.csproj": {
+              "projectPath": "C:\\Users\\coenv\\Desktop\\RipOffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.Logic\\RipoffExpress.Logic.csproj"
+            },
+            "C:\\Users\\coenv\\Desktop\\RipOffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.Models\\RipoffExpress.Models.csproj": {
+              "projectPath": "C:\\Users\\coenv\\Desktop\\RipOffExpress\\RipoffExpress\\RipoffExpress\\RipoffExpress.Models\\RipoffExpress.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -17,6 +17,7 @@ namespace RipoffExpress.Models
         public string Password { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
         [Display(Name = "Repeat Password")]
         public string RepeatPassword { get; set; }
     }

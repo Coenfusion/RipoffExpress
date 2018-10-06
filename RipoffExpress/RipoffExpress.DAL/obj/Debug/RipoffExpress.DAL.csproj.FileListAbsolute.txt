@@ -1,0 +1,12 @@
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\bin\Debug\RipoffExpress.DAL.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\bin\Debug\RipoffExpress.DAL.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\bin\Debug\RipoffExpress.Models.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\bin\Debug\netstandard.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\bin\Debug\RipoffExpress.Models.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\bin\Debug\System.ComponentModel.Annotations.xml
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\obj\Debug\RipoffExpress.DAL.csprojAssemblyReference.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\obj\Debug\RipoffExpress.DAL.csproj.CoreCompileInputs.cache
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\obj\Debug\RipoffExpress.DAL.csproj.CopyComplete
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\obj\Debug\RipoffExpress.DAL.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress.DAL\obj\Debug\RipoffExpress.DAL.pdb

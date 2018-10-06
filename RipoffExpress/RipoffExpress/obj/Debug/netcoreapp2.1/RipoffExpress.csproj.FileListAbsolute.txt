@@ -97,3 +97,12 @@ C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\o
 C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Account\AccountRegister.g.cshtml.cs
 C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Products\ProductWishlist.g.cshtml.cs
 C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Products\ProductShoppingCart.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Account\AccountDetails.g.cshtml.cs
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.DAL.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Logic.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Models.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Repository.dll
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Logic.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Models.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.DAL.pdb
+C:\Users\coenv\Desktop\RipOffExpress\RipoffExpress\RipoffExpress\RipoffExpress\bin\Debug\netcoreapp2.1\RipoffExpress.Repository.pdb
