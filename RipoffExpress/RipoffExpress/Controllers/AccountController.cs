@@ -20,20 +20,20 @@ namespace RipoffExpress.Controllers
             ViewData["ErrorMessage"] = ErrorMessage;
             return View();
         }
-        //[HttpPost]
-        //public IActionResult Login(string Email, string Password)
-        //{
-        //    try
-        //    {
-        //        accountLogic.AccountLogin(new AccountLogin() { Email = Email, Password = Password });
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ErrorMessage = ex.Message;
-        //        return RedirectToAction("AccountLogin", "Account");
-        //    }
-        //}
+        [HttpPost]
+        public IActionResult AccountLogin(string Email, string Password)
+        {
+            try
+            {
+                accountLogic.Login(new AccountLogin() { Email = Email, Password = Password });
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+                return RedirectToAction("AccountLogin", "Account");
+            }
+        }
         public IActionResult AccountRegister()
         {
             ViewData["ErrorMessage"] = ErrorMessage;

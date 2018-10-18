@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AccountRegister.cs" />
+    <Compile Include="AccountModels\AccountDetails.cs" />
+    <Compile Include="AccountModels\AccountLogin.cs" />
+    <Compile Include="AccountModels\AccountRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

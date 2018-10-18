@@ -27,5 +27,20 @@ namespace RipoffExpress.Logic.Account
             }
             return repo.Register(a);
         }
+        public bool Login(AccountLogin a)
+        {
+            //Exceptions zijn K-02.1
+            // B-02.2
+            if (string.IsNullOrEmpty(a.Email))
+            {
+                throw new Exception("Please enter a email adress.");
+            }
+            // B-02.2
+            if (string.IsNullOrEmpty(a.Password))
+            {
+                throw new Exception("Please enter a password.");
+            }
+            return repo.Login(a);
+        }
     }
 }

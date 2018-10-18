@@ -45,5 +45,24 @@ namespace RipoffExpress.DAL.Account
             sqlConnection.Close();
             return true;
         }
+        public bool Login(AccountLogin a)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "LoginProcedure",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@Email", a.Email);
+            cmd.Parameters.AddWithValue("@Password", a.Password);
+            sqlConnection.Open();
+
+            if ((int)cmd.ExecuteScalar() >= 1)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
