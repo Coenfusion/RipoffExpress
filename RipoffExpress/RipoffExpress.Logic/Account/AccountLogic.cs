@@ -1,12 +1,14 @@
 ﻿using System;
 using RipoffExpress.Models.AccountModels;
 using RipoffExpress.Repository.Account;
+using RipoffExpress.DAL;
 
 namespace RipoffExpress.Logic.Account
 {
     public class AccountLogic
     {
-        AccountRepository repo = new AccountRepository();
+        AccountRepository repo = new AccountRepository(ContextTypes.MSSQLContext);
+      
         public bool RegisterNewAccount(AccountRegister a)
         {
             //Exceptions zijn K-01.1
@@ -41,6 +43,10 @@ namespace RipoffExpress.Logic.Account
                 throw new Exception("Please enter a password.");
             }
             return repo.Login(a);
+        }
+        public AccountDetails GetAccountDetails(int Id)
+        {
+            return repo.GetAccountDetails(Id);
         }
     }
 }

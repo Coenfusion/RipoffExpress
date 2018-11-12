@@ -150,3 +150,7 @@ C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\
 C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.csproj.CopyComplete
 C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.dll
 C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\RipoffExpress.pdb
+C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\AccountPartials\AccountOverview.g.cshtml.cs
+C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\AccountPartials\AccountChanges.g.cshtml.cs
+C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\AccountPartials\AccountOrders.g.cshtml.cs
+C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\AccountPartials\AccountAddressBook.g.cshtml.cs

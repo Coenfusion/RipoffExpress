@@ -17,7 +17,6 @@ namespace RipoffExpress.Controllers
         }
         public IActionResult AccountLogin()
         {
-            ViewData["ErrorMessage"] = ErrorMessage;
             return View();
         }
         [HttpPost]
@@ -25,7 +24,8 @@ namespace RipoffExpress.Controllers
         {
             try
             {
-                accountLogic.Login(new AccountLogin() { Email = Email, Password = Password });
+                AccountLogin a;
+                accountLogic.Login(a = new AccountLogin() { Email = Email, Password = Password });
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
@@ -55,7 +55,15 @@ namespace RipoffExpress.Controllers
         }
         public IActionResult AccountDetails()
         {
+            ViewData["ErrorMessage"] = ErrorMessage;
             return View();
+        }
+        [HttpGet]
+        public PartialViewResult AccountOverview(int Id)
+        {
+            //get id from session u fag
+            Id = 2;
+           return PartialView("../AccountPartials/AccountOverview", accountLogic.GetAccountDetails(Id));
         }
     }
 }

@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AccountContext.cs" />
+    <Compile Include="ContextTypes.cs" />
+    <Compile Include="Interfaces\IAccountContext.cs" />
+    <Compile Include="MSSQLContext\AccountContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +51,9 @@
       <Project>{5d86c9c9-e48f-4c1f-9ffe-2560cccfdcf7}</Project>
       <Name>RipoffExpress.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MemoryContext\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
