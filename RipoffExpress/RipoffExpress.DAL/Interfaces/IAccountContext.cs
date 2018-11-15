@@ -5,9 +5,11 @@ namespace RipoffExpress.DAL.Interfaces
 {
     public interface IAccountContext
     {
-        bool Login(AccountLogin a);
-        bool Register(AccountRegister a);
-        bool CheckAvailability(AccountRegister a);
-        AccountDetails GetAccountDetails(int id);
+        bool Login(Models.AccountModels.Account a);
+        bool Register(Models.AccountModels.Account a);
+        bool CheckAvailability(Models.AccountModels.Account a);
+        AccountDetails GetAccountDetails(int? id);
+        int GetUserId(Models.AccountModels.Account a);
+        AccountDetails SaveChanges(Models.AccountModels.AccountDetails a);
     }
 }

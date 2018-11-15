@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RipoffExpress.Models.AccountModels
 {
     public class AccountDetails
     {
+        public int Id { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }

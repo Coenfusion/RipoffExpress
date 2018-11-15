@@ -1,15 +1,18 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using RipoffExpress.Models.AccountModels;
 using RipoffExpress.Logic.Account;
+using System.Web;
 
 namespace RipoffExpress.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : Controller 
     {
         AccountLogic accountLogic = new AccountLogic();
         [TempData]
         public string ErrorMessage { get; set; }
+        public string SessionMessage { get; set; }
 
         public IActionResult Index()
         {
@@ -24,8 +27,12 @@ namespace RipoffExpress.Controllers
         {
             try
             {
-                AccountLogin a;
-                accountLogic.Login(a = new AccountLogin() { Email = Email, Password = Password });
+                Account a;
+                accountLogic.Login(a = new Account(Email, Password));
+
+                HttpContext.Session.SetString("Email", a.Email);
+                HttpContext.Session.SetInt32("UserId", accountLogic.GetUserId(a));
+
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
@@ -44,7 +51,7 @@ namespace RipoffExpress.Controllers
         {
             try
             {
-                accountLogic.RegisterNewAccount(new AccountRegister() { Email = Email, Username = Username, Password = Password, RepeatPassword = RepeatPassword });
+                accountLogic.RegisterNewAccount(new Account(Email, Username, Password, RepeatPassword));
                 return RedirectToAction("AccountLogin", "Account");
             }
             catch (Exception ex)
@@ -55,15 +62,21 @@ namespace RipoffExpress.Controllers
         }
         public IActionResult AccountDetails()
         {
+            ViewData["SessionMessage"] = HttpContext.Session.GetString("Email");
             ViewData["ErrorMessage"] = ErrorMessage;
             return View();
         }
         [HttpGet]
-        public PartialViewResult AccountOverview(int Id)
+        public PartialViewResult AccountOverview()
         {
-            //get id from session u fag
-            Id = 2;
-           return PartialView("../AccountPartials/AccountOverview", accountLogic.GetAccountDetails(Id));
+           return PartialView("../AccountPartials/AccountOverview", accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")));
+        }
+        [HttpPost]
+        public PartialViewResult AccountChanges()
+        {
+            //GetAccountbyId
+            AccountDetails a = accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId"));
+            return PartialView("../AccountPartials/AccountChanges", accountLogic.SaveChanges(a));
         }
     }
 }

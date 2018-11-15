@@ -18,9 +18,11 @@ namespace RipoffExpress.Repository.Account
             }
         }
 
-        public bool Login(AccountLogin a) => context.Login(a);
-        public bool Register(AccountRegister a) => context.Register(a);
-        public bool CheckAvailability(AccountRegister a) => context.CheckAvailability(a);
-        public AccountDetails GetAccountDetails(int Id) => context.GetAccountDetails(Id);
+        public bool Login(Models.AccountModels.Account a) => context.Login(a);
+        public bool Register(Models.AccountModels.Account a) => context.Register(a);
+        public bool CheckAvailability(Models.AccountModels.Account a) => context.CheckAvailability(a);
+        public AccountDetails GetAccountDetails(int? Id) => context.GetAccountDetails(Id);
+        public int GetUserId(Models.AccountModels.Account a) => context.GetUserId(a);
+        public AccountDetails SaveChanges(AccountDetails a) => context.SaveChanges(a);
     }
 }

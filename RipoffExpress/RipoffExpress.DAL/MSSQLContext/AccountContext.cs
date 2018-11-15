@@ -12,7 +12,7 @@ namespace RipoffExpress.DAL.Account
     {
         private readonly string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RipOffExpress;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public bool CheckAvailability(AccountRegister a)
+        public bool CheckAvailability(Models.AccountModels.Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -30,7 +30,7 @@ namespace RipoffExpress.DAL.Account
             }
             return false;
         }
-        public bool Register(AccountRegister a)
+        public bool Register(Models.AccountModels.Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -48,7 +48,7 @@ namespace RipoffExpress.DAL.Account
             sqlConnection.Close();
             return true;
         }
-        public bool Login(AccountLogin a)
+        public bool Login(Models.AccountModels.Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -68,7 +68,7 @@ namespace RipoffExpress.DAL.Account
             return false;
         }
 
-        public AccountDetails GetAccountDetails(int Id)
+        public AccountDetails GetAccountDetails(int? Id)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -87,6 +87,7 @@ namespace RipoffExpress.DAL.Account
             {
                 if (reader.Read())
                 {
+                    accountDetails.Id = (int)reader["Id"];
                     accountDetails.Username = reader["Username"].ToString();
                     accountDetails.Email = reader["Email"].ToString();
 
@@ -96,12 +97,47 @@ namespace RipoffExpress.DAL.Account
                     shippingAddress.City = reader["City"].ToString();
                     shippingAddress.Province = reader["Province"].ToString();
                     shippingAddress.Country = reader["Country"].ToString();
+                    if((int)reader["Default"] == 1)
+                    {
+                        shippingAddress.Default = true;
+                    }
+                    else
+                    {
+                        shippingAddress.Default = false;
+                    }
 
                     accountDetails.ShippingAddress = shippingAddress;
                 }
             }
 
             return accountDetails;
+        }
+
+        public int GetUserId(Models.AccountModels.Account a)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "GetUserId",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("Email", a.Email);
+            sqlConnection.Open();
+            int UserId = 0;
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    UserId = (int)reader["Id"];
+                }
+            }
+            return UserId;
+        }
+
+        public AccountDetails SaveChanges(AccountDetails a)
+        {
+            throw new NotImplementedException();
         }
     }
 }
