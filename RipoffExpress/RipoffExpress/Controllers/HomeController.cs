@@ -12,6 +12,10 @@ namespace RipoffExpress.Controllers
     public class HomeController : Controller
     {
         ProductLogic ProductLogic = new ProductLogic();
+
+        [TempData]
+        public string ErrorMessage { get; set; }
+
         public IActionResult Index()
         {
             return View();
@@ -20,6 +24,11 @@ namespace RipoffExpress.Controllers
         public PartialViewResult MostRecentProducts()
         {
             return PartialView("../ProductPartials/ProductOverview", ProductLogic.MostRecentProducts());
+        }
+        [HttpGet]
+        public PartialViewResult LoadCategories()
+        {
+            return PartialView("../ProductPartials/ProductCategory", ProductLogic.LoadCategories());
         }
         public IActionResult Contact()
         {

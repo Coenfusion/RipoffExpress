@@ -23,7 +23,9 @@ namespace RipoffExpress.Repository.Product
             }
         }
 
-        public List<ProductModelView> MostRecentProducts() => Context.MostRecentProducts();
-        
+        public IEnumerable<ProductModelView> MostRecentProducts() => Context.MostRecentProducts();
+        public IEnumerable<Category> LoadCategories() => Context.LoadCategories();
+
+
     }
 }

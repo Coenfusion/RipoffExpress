@@ -15,4 +15,8 @@
     <ProjectReference Include="..\RipoffExpress.Models\RipoffExpress.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Product\" />
+  </ItemGroup>
+
 </Project>

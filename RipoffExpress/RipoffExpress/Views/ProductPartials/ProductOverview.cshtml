@@ -1,4 +1,20 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using RipoffExpress.Models.ProductModels;
+
+@model IEnumerable<ProductModelView>
+
+@{
+    ViewData["Title"] = "RipOffExpress";
+}
+
+<table>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td><img src="@product.MediaUrl" alt="Product picture" /></td>
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+        </tr>
+    }
+
+</table>

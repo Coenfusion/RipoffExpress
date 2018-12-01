@@ -13,15 +13,15 @@ namespace RipoffExpress.DAL.MSSQLContext
 {
     public class ProductContext : IProductContext
     {
-        private readonly string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RipOffExpress;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private readonly string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RipOffExpress;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public List<ProductModelView> MostRecentProducts()
+        public IEnumerable<ProductModelView> MostRecentProducts()
         {
             List<ProductModelView> RecentProducts = new List<ProductModelView>();
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "LatestProductProcedure",
+                CommandText = "LatestProductsProcedure",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -34,6 +34,26 @@ namespace RipoffExpress.DAL.MSSQLContext
                 }
             }
             return RecentProducts;
+        }
+        public IEnumerable<Category> LoadCategories()
+        {
+            List<Category> Categories = new List<Category>();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "LoadCategoryProcedure",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            sqlConnection.Open();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Categories.Add(new Category() {Name = reader["Name"].ToString()});
+                }
+            }
+            return Categories;
         }
     }
 }

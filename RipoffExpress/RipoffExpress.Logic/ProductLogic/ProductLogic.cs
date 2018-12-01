@@ -13,9 +13,13 @@ namespace RipoffExpress.Logic.ProductLogic
     public class ProductLogic
     {
         ProductRepository repo = new ProductRepository(ContextType.MSSQLContext);
-        public List<ProductModelView> MostRecentProducts()
+        public IEnumerable<ProductModelView> MostRecentProducts()
         {
             return repo.MostRecentProducts();
+        }
+        public IEnumerable<Category> LoadCategories()
+        {
+            return repo.LoadCategories();
         }
     }
 }

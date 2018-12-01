@@ -71,12 +71,12 @@ namespace RipoffExpress.Controllers
         {
            return PartialView("../AccountPartials/AccountOverview", accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")));
         }
-        [HttpPost]
+        [HttpGet]
         public PartialViewResult AccountChanges()
         {
             //GetAccountbyId
             AccountDetails a = accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId"));
-            return PartialView("../AccountPartials/AccountChanges", accountLogic.SaveChanges(a));
+            return PartialView("../AccountPartials/AccountChanges");
         }
     }
 }

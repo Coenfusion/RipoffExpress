@@ -10,6 +10,7 @@ namespace RipoffExpress.DAL.Interfaces
 {
     public interface IProductContext
     {
-        List<ProductModelView> MostRecentProducts();
+        IEnumerable<ProductModelView> MostRecentProducts();
+        IEnumerable<Category> LoadCategories();
     }
 }

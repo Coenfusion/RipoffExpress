@@ -18,7 +18,6 @@
         <div class="row">
             <div class="col-md-4">
                 <section>
-                    
                     <ul>
                         <li><a id="LoadOverview">Overview</a></li>
                         <li><a id="LoadChanges">Change Details</a></li>
@@ -34,7 +33,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="~/js/AccountDetails.js"></script>
+<script type="text/javascript" src="~/js/LoadPartial.js"></script>
 <script>
     document.getElementById("LoadOverview").onclick = function () { myFunction() };
     function myFunction() {
@@ -42,14 +41,14 @@
         $("#LoadPartials").load("@Html.Raw(Url.Action("AccountOverview", "Account")) ")
     }
 </script>
-@*<script>
+<script>
     document.getElementById("LoadChanges").onclick = function () { myFunction() };
     function myFunction() {
 
         $("#LoadPartials").load("@Html.Raw(Url.Action("AccountChanges", "Account")) ")
     }
 </script>
-<script>
+@*<script>
     document.getElementById("LoadOrderHistory").onclick = function () { myFunction() };
     function myFunction() {
 
