@@ -126,9 +126,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextTypes.cs" />
+    <Compile Include="ContextType.cs" />
     <Compile Include="Interfaces\IAccountContext.cs" />
+    <Compile Include="Interfaces\IProductContext.cs" />
     <Compile Include="MSSQLContext\AccountContext.cs" />
+    <Compile Include="MSSQLContext\ProductContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,12 +9,12 @@ namespace RipoffExpress.Repository.Account
     public class AccountRepository
     {
         private IAccountContext context;
-        public AccountRepository(ContextTypes type)
+        public AccountRepository(ContextType type)
         {
             switch (type)
             {
-                case ContextTypes.MSSQLContext: context = new AccountContext(); break;
-                case ContextTypes.MemoryContext: context = new AccountContext(); break;
+                case ContextType.MSSQLContext: context = new AccountContext(); break;
+                case ContextType.MemoryContext: context = new AccountContext(); break;
             }
         }
 

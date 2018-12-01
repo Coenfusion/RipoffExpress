@@ -4,17 +4,23 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RipoffExpress.Logic.ProductLogic;
 using RipoffExpress.Models;
 
 namespace RipoffExpress.Controllers
 {
     public class HomeController : Controller
     {
+        ProductLogic ProductLogic = new ProductLogic();
         public IActionResult Index()
         {
             return View();
         }
-
+        [HttpGet]
+        public PartialViewResult MostRecentProducts()
+        {
+            return PartialView("../ProductPartials/ProductOverview", ProductLogic.MostRecentProducts());
+        }
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

@@ -67,7 +67,6 @@ namespace RipoffExpress.DAL.Account
             }
             return false;
         }
-
         public AccountDetails GetAccountDetails(int? Id)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
@@ -112,7 +111,6 @@ namespace RipoffExpress.DAL.Account
 
             return accountDetails;
         }
-
         public int GetUserId(Models.AccountModels.Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
@@ -134,7 +132,6 @@ namespace RipoffExpress.DAL.Account
             }
             return UserId;
         }
-
         public AccountDetails SaveChanges(AccountDetails a)
         {
             throw new NotImplementedException();

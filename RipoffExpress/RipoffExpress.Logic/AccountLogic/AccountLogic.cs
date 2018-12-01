@@ -7,7 +7,7 @@ namespace RipoffExpress.Logic.Account
 {
     public class AccountLogic
     {
-        AccountRepository repo = new AccountRepository(ContextTypes.MSSQLContext);
+        AccountRepository repo = new AccountRepository(ContextType.MSSQLContext);
       
         public bool RegisterNewAccount(Models.AccountModels.Account a)
         {

@@ -132,9 +132,14 @@
   <ItemGroup>
     <Compile Include="AccountModels\AccountDetails.cs" />
     <Compile Include="AccountModels\Account.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="CategoryModels\Category.cs" />
+    <Compile Include="OrderModels\OrderStatus.cs" />
+    <Compile Include="OrderModels\Order.cs" />
+    <Compile Include="ProductModels\Product.cs" />
+    <Compile Include="ProductModels\ProductModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShippingAddress.cs" />
+    <Compile Include="ShippingAddressModels\ShippingAddress.cs" />
+    <Compile Include="StoreModels\Store.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

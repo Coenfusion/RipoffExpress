@@ -1,7 +1,7 @@
 ﻿
 namespace RipoffExpress.DAL
 {
-    public enum ContextTypes
+    public enum ContextType
     {
         MemoryContext,
         MSSQLContext

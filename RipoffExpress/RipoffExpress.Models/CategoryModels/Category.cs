@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace RipoffExpress.Models
 {
-    public class Product
+    public class Category
     {
-
+        public string Name { get; set; }
     }
 }
