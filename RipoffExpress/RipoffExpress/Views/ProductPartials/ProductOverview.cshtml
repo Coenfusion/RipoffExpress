@@ -10,11 +10,13 @@
 
     @foreach (var product in Model)
     {
+        
         <tr>
-            <td><img src="@product.MediaUrl" alt="Product picture" /></td>
-            <td>@product.Name</td>
+            <td><a href="#"><img src="@product.MediaUrl" alt="Product picture" /></a></td>
+            <td><a href="">@product.Name</a></td>
             <td>@product.Price</td>
         </tr>
+        
     }
 
 </table>

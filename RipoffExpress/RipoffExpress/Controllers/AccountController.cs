@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using RipoffExpress.Models.AccountModels;
-using RipoffExpress.Logic.Account;
+using RipoffExpress.Logic;
 using System.Web;
 
 namespace RipoffExpress.Controllers
@@ -10,6 +10,7 @@ namespace RipoffExpress.Controllers
     public class AccountController : Controller 
     {
         AccountLogic accountLogic = new AccountLogic();
+        ShippingAddressLogic shippingAddressLogic = new ShippingAddressLogic();
         [TempData]
         public string ErrorMessage { get; set; }
         public string SessionMessage { get; set; }
@@ -74,9 +75,37 @@ namespace RipoffExpress.Controllers
         [HttpGet]
         public PartialViewResult AccountChanges()
         {
-            //GetAccountbyId
             AccountDetails a = accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId"));
             return PartialView("../AccountPartials/AccountChanges");
+        }
+        [HttpPost]
+        public IActionResult AccountChanges(string Email, string Username, string CurrentPassword, string NewPassword)
+        {
+            try
+            {
+                AccountDetails CurrentDetails = accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId"));
+                AccountChanges NewDetails = new AccountChanges()
+                {
+                    Email = Email,
+                    Username = Username,
+                    CurrentPassword = CurrentPassword,
+                    NewPassword = NewPassword
+                };
+
+                accountLogic.SaveChanges(CurrentDetails, NewDetails);
+                ErrorMessage = "Changes have been made.";
+                return RedirectToAction("AccountDetails","Account");
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+                return RedirectToAction("AccountDetails", "Account");
+            }
+        }
+        [HttpGet]
+        public PartialViewResult AccountAddressBook()
+        {
+            return PartialView("../AccountPartials/AccountAddressBook", shippingAddressLogic.GetAddresses(HttpContext.Session.GetInt32("UserId")));
         }
     }
 }

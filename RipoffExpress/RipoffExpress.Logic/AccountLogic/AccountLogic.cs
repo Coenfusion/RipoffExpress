@@ -1,15 +1,15 @@
 ﻿using System;
 using RipoffExpress.Models.AccountModels;
-using RipoffExpress.Repository.Account;
+using RipoffExpress.Repository;
 using RipoffExpress.DAL;
 
-namespace RipoffExpress.Logic.Account
+namespace RipoffExpress.Logic
 {
     public class AccountLogic
     {
         AccountRepository repo = new AccountRepository(ContextType.MSSQLContext);
       
-        public bool RegisterNewAccount(Models.AccountModels.Account a)
+        public void RegisterNewAccount(Account a)
         {
             //Exceptions zijn K-01.1
             //B-01.3
@@ -23,13 +23,14 @@ namespace RipoffExpress.Logic.Account
                 throw new Exception("Passwords do not match");
             }
             //B-01.1
-            if (repo.CheckAvailability(a))
+            if (!repo.CheckAvailability(a))
             {
                 throw new Exception("This account already exists.");
             }
-            return repo.Register(a);
+            repo.Register(a);
+            return;
         }
-        public bool Login(Models.AccountModels.Account a)
+        public bool Login(Account a)
         {
             //Exceptions zijn K-02.1
             // B-02.2
@@ -48,14 +49,24 @@ namespace RipoffExpress.Logic.Account
         {
             return repo.GetAccountDetails(Id);
         }
-        public AccountDetails SaveChanges(AccountDetails a)
+        public void SaveChanges(AccountDetails CurrentDetails, AccountChanges NewDetails)
         {
-            //Check if current password is correct
-            //Check if the new passwords match
-            //Check if one of the password fiels is empty, they should either all be filled or all empty
-            return repo.SaveChanges(a);
+            if (NewDetails.CurrentPassword != NewDetails.CurrentPassword)
+            {
+                throw new Exception("Password is incorrect.");
+            }
+            if (!repo.CheckAvailability(new Account() { Email = NewDetails.Email, Username = ""}))
+            {
+                throw new Exception("Email is already in use.");
+            }
+            if (!repo.CheckAvailability(new Account() { Username = NewDetails.Username, Email = "" }))
+            {
+                throw new Exception("Username is already in use.");
+            }
+            repo.SaveChanges(NewDetails, CurrentDetails.Id);
+            return;
         }
-        public int GetUserId(Models.AccountModels.Account a)
+        public int GetUserId(Account a)
         {
             return repo.GetUserId(a);
         }

@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Product\**" />
+    <Content Remove="Views\Product\**" />
+    <EmbeddedResource Remove="Views\Product\**" />
+    <None Remove="Views\Product\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
@@ -13,10 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RipoffExpress.Logic\RipoffExpress.Logic.csproj" />
     <ProjectReference Include="..\RipoffExpress.Models\RipoffExpress.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Product\" />
   </ItemGroup>
 
 </Project>

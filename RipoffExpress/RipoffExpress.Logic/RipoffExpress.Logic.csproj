@@ -129,6 +129,7 @@
     <Compile Include="AccountLogic\AccountLogic.cs" />
     <Compile Include="ProductLogic\ProductLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShippingAddres\ShippingAddressLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RipoffExpress.DAL\RipoffExpress.DAL.csproj">

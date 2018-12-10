@@ -6,13 +6,13 @@ using RipoffExpress.Models;
 using RipoffExpress.Models.AccountModels;
 
 
-namespace RipoffExpress.DAL.Account
+namespace RipoffExpress.DAL
 {
     public class AccountContext : IAccountContext
     {
         private readonly string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RipOffExpress;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public bool CheckAvailability(Models.AccountModels.Account a)
+        public bool CheckAvailability(Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -22,15 +22,16 @@ namespace RipoffExpress.DAL.Account
                 Connection = sqlConnection
             };
             cmd.Parameters.AddWithValue("@Email", a.Email);
+            cmd.Parameters.AddWithValue("@Username", a.Username);
             sqlConnection.Open();
 
             if ((int)cmd.ExecuteScalar() >= 1)
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
-        public bool Register(Models.AccountModels.Account a)
+        public void Register(Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -46,9 +47,8 @@ namespace RipoffExpress.DAL.Account
             sqlConnection.Open();
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
-            return true;
         }
-        public bool Login(Models.AccountModels.Account a)
+        public bool Login(Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -111,7 +111,7 @@ namespace RipoffExpress.DAL.Account
 
             return accountDetails;
         }
-        public int GetUserId(Models.AccountModels.Account a)
+        public int GetUserId(Account a)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -132,9 +132,22 @@ namespace RipoffExpress.DAL.Account
             }
             return UserId;
         }
-        public AccountDetails SaveChanges(AccountDetails a)
+        public void SaveChanges(AccountChanges a, int? Id)
         {
-            throw new NotImplementedException();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "SaveChangesProcedure",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@Id", Id);
+            cmd.Parameters.AddWithValue("@Email", a.Email);
+            cmd.Parameters.AddWithValue("@Username", a.Username);
+            cmd.Parameters.AddWithValue("@NewPassword", a.NewPassword);
+            sqlConnection.Open();
+            cmd.ExecuteNonQuery();
+            sqlConnection.Close();
         }
     }
 }

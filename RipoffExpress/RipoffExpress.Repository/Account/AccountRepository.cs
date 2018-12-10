@@ -1,10 +1,9 @@
 ﻿using System;
 using RipoffExpress.Models.AccountModels;
 using RipoffExpress.DAL;
-using RipoffExpress.DAL.Account;
 using RipoffExpress.DAL.Interfaces;
 
-namespace RipoffExpress.Repository.Account
+namespace RipoffExpress.Repository
 {
     public class AccountRepository
     {
@@ -18,11 +17,11 @@ namespace RipoffExpress.Repository.Account
             }
         }
 
-        public bool Login(Models.AccountModels.Account a) => context.Login(a);
-        public bool Register(Models.AccountModels.Account a) => context.Register(a);
-        public bool CheckAvailability(Models.AccountModels.Account a) => context.CheckAvailability(a);
+        public bool Login(Account a) => context.Login(a);
+        public void Register(Account a) => context.Register(a);
+        public bool CheckAvailability(Account a) => context.CheckAvailability(a);
         public AccountDetails GetAccountDetails(int? Id) => context.GetAccountDetails(Id);
-        public int GetUserId(Models.AccountModels.Account a) => context.GetUserId(a);
-        public AccountDetails SaveChanges(AccountDetails a) => context.SaveChanges(a);
+        public int GetUserId(Account a) => context.GetUserId(a);
+        public void SaveChanges(AccountChanges a, int? Id) => context.SaveChanges(a, Id);
     }
 }

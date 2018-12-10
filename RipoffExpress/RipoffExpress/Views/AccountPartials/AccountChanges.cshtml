@@ -1,8 +1,8 @@
 ﻿@using RipoffExpress.Models.AccountModels;
 
-@model Account
+@model AccountChanges
 
-<form method="post" action="/Account/SaveChanges">
+<form method="post" action="~/Account/AccountChanges">
     <div class="form-group">
         <label asp-for="Email"></label>
         <input asp-for="Email" class="form-control" />
@@ -14,14 +14,14 @@
         <span asp-validation-for="Username" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
+        <label asp-for="CurrentPassword"></label>
+        <input asp-for="CurrentPassword" class="form-control" />
+        <span asp-validation-for="CurrentPassword" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="RepeatPassword"></label>
-        <input asp-for="RepeatPassword" class="form-control" />
-        <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+        <label asp-for="NewPassword"></label>
+        <input asp-for="NewPassword" class="form-control" />
+        <span asp-validation-for="NewPassword" class="text-danger"></span>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-default">Submit changes</button>

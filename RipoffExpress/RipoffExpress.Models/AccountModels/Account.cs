@@ -4,6 +4,10 @@ namespace RipoffExpress.Models.AccountModels
 {
     public class Account
     {
+        public Account()
+        {
+
+        }
         public Account(string _email, string _password)
         {
             this.Email = _email;

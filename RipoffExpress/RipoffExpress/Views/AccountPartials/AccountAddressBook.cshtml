@@ -1,7 +1,33 @@
-﻿@using RipoffExpress.Models.AccountModels;
+﻿@using RipoffExpress.Models;
 
-@model AccountDetails
+@model List<ShippingAddress>
 
 <table>
 
+    @foreach (ShippingAddress shippingAddress in Model )
+    {
+        <tr>
+            <td>
+                @shippingAddress.Address
+            </td>
+        </tr>
+        <tr>
+            <td>@shippingAddress.PostalCode</td>
+        </tr>
+        <tr>
+            <td>@shippingAddress.City</td>
+        </tr>
+        <tr>
+            <td>
+                @shippingAddress.Province
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @shippingAddress.Country
+            </td>
+        </tr>
+    }
 </table>
+
+<button></button>

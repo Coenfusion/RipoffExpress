@@ -130,6 +130,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountModels\AccountChanges.cs" />
     <Compile Include="AccountModels\AccountDetails.cs" />
     <Compile Include="AccountModels\Account.cs" />
     <Compile Include="CategoryModels\Category.cs" />
