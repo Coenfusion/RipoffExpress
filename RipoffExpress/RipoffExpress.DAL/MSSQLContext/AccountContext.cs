@@ -17,7 +17,7 @@ namespace RipoffExpress.DAL
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "CheckAvailabilityProcedure",
+                CommandText = "Ac_Availability",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -36,7 +36,7 @@ namespace RipoffExpress.DAL
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "RegisterProcedure",
+                CommandText = "Ac_Register",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -53,7 +53,7 @@ namespace RipoffExpress.DAL
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "LoginProcedure",
+                CommandText = "Ac_Login",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -72,7 +72,7 @@ namespace RipoffExpress.DAL
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "AccountDetailsProcedure",
+                CommandText = "Ac_Details",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -116,7 +116,7 @@ namespace RipoffExpress.DAL
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "GetUserId",
+                CommandText = "Ac_GetId",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -137,7 +137,7 @@ namespace RipoffExpress.DAL
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "SaveChangesProcedure",
+                CommandText = "Ac_EditDetails",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };

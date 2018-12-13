@@ -70,13 +70,13 @@ namespace RipoffExpress.Controllers
         [HttpGet]
         public PartialViewResult AccountOverview()
         {
-           return PartialView("../AccountPartials/AccountOverview", accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")));
+           return PartialView("../Account/__AccountOverview", accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")));
         }
         [HttpGet]
         public PartialViewResult AccountChanges()
         {
             AccountDetails a = accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId"));
-            return PartialView("../AccountPartials/AccountChanges");
+            return PartialView("../Account/_AccountChanges");
         }
         [HttpPost]
         public IActionResult AccountChanges(string Email, string Username, string CurrentPassword, string NewPassword)
@@ -105,7 +105,7 @@ namespace RipoffExpress.Controllers
         [HttpGet]
         public PartialViewResult AccountAddressBook()
         {
-            return PartialView("../AccountPartials/AccountAddressBook", shippingAddressLogic.GetAddresses(HttpContext.Session.GetInt32("UserId")));
+            return PartialView("../Account/_AccountAddressBook", shippingAddressLogic.GetAddresses(HttpContext.Session.GetInt32("UserId")));
         }
     }
 }

@@ -23,12 +23,12 @@ namespace RipoffExpress.Controllers
         [HttpGet]
         public PartialViewResult MostRecentProducts()
         {
-            return PartialView("../ProductPartials/ProductOverview", ProductLogic.MostRecentProducts());
+            return PartialView("../Product/_ProductOverview", ProductLogic.MostRecentProducts());
         }
         [HttpGet]
         public PartialViewResult LoadCategories()
         {
-            return PartialView("../ProductPartials/ProductCategory", ProductLogic.LoadCategories());
+            return PartialView("../Product/_ProductCategory", ProductLogic.LoadCategories());
         }
         public IActionResult Contact()
         {
