@@ -34,7 +34,7 @@ namespace RipoffExpress.Logic
             }
             repo.CreateNewAddress(shippingAddress, Id);
         }
-        public void SaveChanges(ShippingAddress shippingAddress, int? UserId, int? AddressId)
+        public void SaveChanges(ShippingAddress shippingAddress)
         {
             if (CheckEmptyFields(shippingAddress))
             {
@@ -44,9 +44,12 @@ namespace RipoffExpress.Logic
             {
                 throw new Exception("You have already saved this address");
             }
-            repo.SaveChanges(shippingAddress, UserId, AddressId);
+            repo.SaveChanges(shippingAddress);
         }
-        public void DeleteAddress(int? AddressId) => repo.DeleteAddress(AddressId);
-        public void SetAsDefault(int? AddressId) => repo.SetAsDefault(AddressId);
+        public void DeleteAddress(int? Id) => repo.DeleteAddress(Id);
+
+        public void RemoveDefault(int? UserId) => repo.RemoveDefault(UserId);
+
+        public void SetAsDefault(int? Id) => repo.SetAsDefault(Id);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using RipoffExpress.Models;
 using RipoffExpress.DAL;
+using System;
 
 namespace RipoffExpress.Repository
 {
@@ -23,9 +24,11 @@ namespace RipoffExpress.Repository
 
         public ShippingAddress AddressDetails(int? AddressId) => context.AddressDetails(AddressId);
 
-        public void SaveChanges(ShippingAddress shippingAddress, int? UserId, int? AddressId) => context.SaveChanges(shippingAddress,UserId, AddressId);
+        public void SaveChanges(ShippingAddress shippingAddress) => context.SaveChanges(shippingAddress);
 
-        public void DeleteAddress(int? AddressId) => context.DeleteAddress(AddressId);
-        public void SetAsDefault(int? AddressId) => context.SetAsDefault(AddressId);
+        public void DeleteAddress(int? Id) => context.DeleteAddress(Id);
+        public void SetAsDefault(int? Id) => context.SetAsDefault(Id);
+
+        public void RemoveDefault(int? UserId) => context.RemoveDefault(UserId);
     }
 }

@@ -31,7 +31,7 @@ namespace RipoffExpress.DAL
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
         }
-        public void SaveChanges(ShippingAddress shippingAddress, int? UserId, int? AddressId)
+        public void SaveChanges(ShippingAddress shippingAddress)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -40,8 +40,7 @@ namespace RipoffExpress.DAL
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
-            cmd.Parameters.AddWithValue("@UserId", UserId);
-            cmd.Parameters.AddWithValue("@AddressId", AddressId);
+            cmd.Parameters.AddWithValue("@AddressId", shippingAddress.Id);
             cmd.Parameters.AddWithValue("@Address", shippingAddress.Address);
             cmd.Parameters.AddWithValue("@PostalCode", shippingAddress.PostalCode);
             cmd.Parameters.AddWithValue("@City", shippingAddress.City);
@@ -52,7 +51,7 @@ namespace RipoffExpress.DAL
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
         }
-        public void DeleteAddress(int? AddressId)
+        public void DeleteAddress(int? Id)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
@@ -61,14 +60,38 @@ namespace RipoffExpress.DAL
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
-            cmd.Parameters.AddWithValue("@AddressId", AddressId);
+            cmd.Parameters.AddWithValue("@AddressId", Id);
             sqlConnection.Open();
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
         }
-        public void SetAsDefault(int? AddressId)
+        public void SetAsDefault(int? Id)
         {
-            throw new NotImplementedException();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Ad_Default",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@AddressId", Id);
+            sqlConnection.Open();
+            cmd.ExecuteNonQuery();
+            sqlConnection.Close();
+        }
+        public void RemoveDefault(int? UserId)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Ad_RemoveDefault",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@UserId", UserId);
+            sqlConnection.Open();
+            cmd.ExecuteNonQuery();
+            sqlConnection.Close();
         }
         //Retrieve info
         public ShippingAddress AddressDetails(int? AddressId)
@@ -87,12 +110,14 @@ namespace RipoffExpress.DAL
             {
                 if (reader.Read())
                 {
+                    shippingAddress.Id = (int)reader["Id"];
                     shippingAddress.Address = (string)reader["Address"];
                     shippingAddress.PostalCode = (string)reader["PostalCode"];
                     shippingAddress.City = (string)reader["City"];
                     shippingAddress.Province = (string)reader["Province"];
                     shippingAddress.Country = (string)reader["Country"];
                     shippingAddress.PhoneNumber = (string)reader["PhoneNumber"];
+                    if ((string)reader["Default"] == "1") { shippingAddress.Default = true; } else { shippingAddress.Default = false; }
                 }
             }
             sqlConnection.Close();
@@ -114,20 +139,25 @@ namespace RipoffExpress.DAL
             {
                 while (reader.Read())
                 {
+                    bool _default = false;
+
+                    if ((string)reader["Default"] == "1") { _default = true; } else {_default = false; }
+
                     allAddresses.Add(new ShippingAddress(
+                        (int?)reader["Id"],
                         (string)reader["Address"],
+                        (string)reader["PostalCode"],
                         (string)reader["City"],
                         (string)reader["Province"],
-                        (string)reader["PostalCode"],
-                        (string)reader["Country"], (string)
-                        reader["PhoneNumber"])
+                        (string)reader["Country"],
+                        (string)reader["PhoneNumber"],
+                        _default)
                         );
                 }
             }
             sqlConnection.Close();
             return allAddresses;
         }
-
         //Logic 
         public bool CheckForDuplicate(ShippingAddress shippingAddress)
         {
@@ -147,6 +177,6 @@ namespace RipoffExpress.DAL
             }
             return false;
         }
-       
+
     }
 }

@@ -24,18 +24,28 @@ namespace RipoffExpress.Controllers
             logic.CreateNewAddress(new ShippingAddress(Address, PostalCode, City, Province, Country, PhoneNumber), HttpContext.Session.GetInt32("UserId"));
             return PartialView("../ShippingAddress/ShippingAddressCreation");
         }
-        [HttpGet]
-        public PartialViewResult ShippingAddressEdit(int? AddressId)
+        public PartialViewResult ShippingAddressEdit(int? Id)
         {
-            return PartialView("../ShippingAddress/ShippingAddressEdit", logic.AddressDetails(AddressId));
+            return PartialView("../ShippingAddress/_ShippingAddressEdit", logic.AddressDetails(Id));
         }
         [HttpPost]
-        public PartialViewResult ShippingAddressEdit(int? AddressId, string Address, string PostalCode, string City, string Province, string Country, string PhoneNumber)
+        public PartialViewResult ShippingAddressEdit(int? Id, string Address, string PostalCode, string City, string Province, string Country, string PhoneNumber, bool Default)
         {
-            logic.SaveChanges(new ShippingAddress(Address, PostalCode, City, Province, Country, PhoneNumber), HttpContext.Session.GetInt32("UserId"), AddressId);
-            return PartialView("../ShippingAddress/ShippingAddressEdit", logic.AddressDetails(AddressId));
+            logic.SaveChanges(new ShippingAddress(Id, Address, PostalCode, City, Province, Country, PhoneNumber, Default));
+            return PartialView("../ShippingAddress/_ShippingAddressEdit", logic.AddressDetails(Id));
         }
-        public void DeleteAddress(int? AddressId) => logic.DeleteAddress(AddressId);
-        public void SetAsDefault(int? AddressId) => logic.SetAsDefault(AddressId);
+        [HttpPost]
+        public IActionResult DeleteAddress(int? Id)
+        {
+            logic.DeleteAddress(Id);
+            return RedirectToAction("../Account/AccountDetails");
+        }
+        [HttpPost]
+        public IActionResult SetAsDefault(int? Id)
+        {
+            logic.RemoveDefault(HttpContext.Session.GetInt32("UserId"));
+            logic.SetAsDefault(Id);
+            return RedirectToAction("../Account/AccountDetails");
+        }
     }
 }

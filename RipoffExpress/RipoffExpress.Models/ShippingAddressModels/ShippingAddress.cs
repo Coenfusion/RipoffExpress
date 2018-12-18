@@ -17,6 +17,18 @@ namespace RipoffExpress.Models
             this.Country = Country;
             this.PhoneNumber = PhoneNumber;
         }
+        public ShippingAddress(int? Id, string Address, string PostalCode, string City, string Province, string Country, string PhoneNumber, bool Default)
+        {
+            this.Id = Id;
+            this.Address = Address;
+            this.PostalCode = PostalCode;
+            this.City = City;
+            this.Province = Province;
+            this.Country = Country;
+            this.PhoneNumber = PhoneNumber;
+            this.Default = Default;
+        }
+        public int? Id { get; set; }
         [Display(Name = "Address")]
         public string Address { get; set; }
 

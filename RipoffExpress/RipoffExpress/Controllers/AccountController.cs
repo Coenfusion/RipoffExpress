@@ -70,7 +70,7 @@ namespace RipoffExpress.Controllers
         [HttpGet]
         public PartialViewResult AccountOverview()
         {
-           return PartialView("../Account/__AccountOverview", accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")));
+           return PartialView("../Account/_AccountOverview", accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")));
         }
         [HttpGet]
         public PartialViewResult AccountChanges()
