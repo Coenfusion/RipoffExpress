@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RipoffExpress.Repository.Product
+namespace RipoffExpress.Repository
 {
     public class ProductRepository
     {

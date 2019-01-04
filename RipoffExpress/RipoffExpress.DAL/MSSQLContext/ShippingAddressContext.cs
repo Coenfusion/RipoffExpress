@@ -117,7 +117,7 @@ namespace RipoffExpress.DAL
                     shippingAddress.Province = (string)reader["Province"];
                     shippingAddress.Country = (string)reader["Country"];
                     shippingAddress.PhoneNumber = (string)reader["PhoneNumber"];
-                    if ((string)reader["Default"] == "1") { shippingAddress.Default = true; } else { shippingAddress.Default = false; }
+                    if ((int)reader["Default"] == 1) { shippingAddress.Default = true; } else { shippingAddress.Default = false; }
                 }
             }
             sqlConnection.Close();
@@ -141,7 +141,7 @@ namespace RipoffExpress.DAL
                 {
                     bool _default = false;
 
-                    if ((string)reader["Default"] == "1") { _default = true; } else {_default = false; }
+                    if ((int)reader["Default"] == 1) { _default = true; } else {_default = false; }
 
                     allAddresses.Add(new ShippingAddress(
                         (int?)reader["Id"],

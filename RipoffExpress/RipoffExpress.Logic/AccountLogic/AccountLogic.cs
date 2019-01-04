@@ -55,16 +55,18 @@ namespace RipoffExpress.Logic
             {
                 throw new Exception("Password is incorrect.");
             }
-            if (!repo.CheckAvailability(new Account() { Email = NewDetails.Email, Username = ""}))
+            if (!repo.CheckAvailability(new Account() { Email = NewDetails.Email, Username = ""}) && CurrentDetails.Email != NewDetails.Email)
             {
                 throw new Exception("Email is already in use.");
             }
-            if (!repo.CheckAvailability(new Account() { Username = NewDetails.Username, Email = "" }))
+            if (!repo.CheckAvailability(new Account() { Username = NewDetails.Username, Email = "" }) && CurrentDetails.Username != NewDetails.Username)
             {
                 throw new Exception("Username is already in use.");
             }
-            repo.SaveChanges(NewDetails, CurrentDetails.Id);
-            return;
+            else
+            {
+                repo.SaveChanges(NewDetails, CurrentDetails.Id);
+            }
         }
         public int GetUserId(Account a)
         {

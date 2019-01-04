@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using RipoffExpress.DAL;
 using RipoffExpress.Models;
 using RipoffExpress.Models.ProductModels;
-using RipoffExpress.Repository.Product;
+using RipoffExpress.Repository;
 
-namespace RipoffExpress.Logic.ProductLogic
+namespace RipoffExpress.Logic
 {
     public class ProductLogic
     {

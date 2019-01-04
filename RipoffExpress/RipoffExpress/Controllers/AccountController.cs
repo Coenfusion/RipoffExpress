@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using RipoffExpress.Models.AccountModels;
 using RipoffExpress.Logic;
-using System.Web;
 
 namespace RipoffExpress.Controllers
 {
@@ -28,8 +27,8 @@ namespace RipoffExpress.Controllers
         {
             try
             {
-                Account a;
-                accountLogic.Login(a = new Account(Email, Password));
+                Account a = new Account(Email, Password);
+                accountLogic.Login(a);
 
                 HttpContext.Session.SetString("Email", a.Email);
                 HttpContext.Session.SetInt32("UserId", accountLogic.GetUserId(a));
@@ -76,23 +75,14 @@ namespace RipoffExpress.Controllers
         public PartialViewResult AccountChanges()
         {
             AccountDetails a = accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId"));
-            return PartialView("../Account/_AccountChanges");
+            return PartialView("../Account/_AccountChanges", a);
         }
         [HttpPost]
         public IActionResult AccountChanges(string Email, string Username, string CurrentPassword, string NewPassword)
         {
             try
             {
-                AccountDetails CurrentDetails = accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId"));
-                AccountChanges NewDetails = new AccountChanges()
-                {
-                    Email = Email,
-                    Username = Username,
-                    CurrentPassword = CurrentPassword,
-                    NewPassword = NewPassword
-                };
-
-                accountLogic.SaveChanges(CurrentDetails, NewDetails);
+                accountLogic.SaveChanges(accountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")), new AccountChanges(Email, Username, CurrentPassword, NewPassword));
                 ErrorMessage = "Changes have been made.";
                 return RedirectToAction("AccountDetails","Account");
             }
@@ -106,6 +96,11 @@ namespace RipoffExpress.Controllers
         public PartialViewResult AccountAddressBook()
         {
             return PartialView("../Account/_AccountAddressBook", shippingAddressLogic.GetAddresses(HttpContext.Session.GetInt32("UserId")));
+        }
+        public IActionResult AccountLogout()
+        {
+            HttpContext.Session.Remove("UserId");
+            return RedirectToAction("Index","Home");
         }
     }
 }

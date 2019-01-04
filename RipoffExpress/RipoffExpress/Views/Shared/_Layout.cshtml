@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -49,13 +52,27 @@
                     </div>
                 </form>
             </div>
+           
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="ShoppingCart">Shopping Cart</a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="AccountLogin">Sign in</a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="AccountRegister">Register</a></li>
-                </ul>
+                @{ if (Context.Session.GetInt32("UserId") != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a asp-area="" asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="ShoppingCart">Shopping Cart</a></li>
+                            <li><a asp-area="" asp-controller="Account" asp-action="AccountDetails">My Profile</a></li>
+                            <li><a asp-area="" asp-controller="Account" asp-action="AccountLogout">Log out</a></li>
+                        </ul>
+                    }
+                    else
+                    { 
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a asp-area="" asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="ShoppingCart">Shopping Cart</a></li>
+                            <li><a asp-area="" asp-controller="Account" asp-action="AccountLogin">Sign in</a></li>
+                            <li><a asp-area="" asp-controller="Account" asp-action="AccountRegister">Register</a></li>
+                        </ul>
+                    }
+                }
             </div>
         </div>
     </nav>

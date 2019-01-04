@@ -9,6 +9,14 @@ namespace RipoffExpress.Models.AccountModels
 {
     public class AccountChanges
     {
+        public AccountChanges(string email, string username, string currentPassword, string newPassword)
+        {
+            Email = email;
+            Username = username;
+            CurrentPassword = currentPassword;
+            NewPassword = newPassword;
+        }
+
         public int Id { get; set; }
 
         [EmailAddress]

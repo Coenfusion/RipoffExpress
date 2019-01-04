@@ -2,39 +2,48 @@
 
 @model List<ShippingAddress>
 
-        <table>
-            @foreach (ShippingAddress shippingAddress in Model)
+<table>
+    @foreach (ShippingAddress shippingAddress in Model)
+    {
+        <tr>
+            <td>
+                @shippingAddress.Address
+            </td>
+        </tr>
+        <tr>
+            <td>@shippingAddress.PostalCode</td>
+        </tr>
+        <tr>
+            <td>@shippingAddress.City</td>
+        </tr>
+        <tr>
+            <td>
+                @shippingAddress.Province
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @shippingAddress.Country
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Default:
+            </td>
+            @if (shippingAddress.Default == true)
             {
-                <tr>
-                    <td>
-                        @shippingAddress.Address
-                    </td>
-                </tr>
-                <tr>
-                    <td>@shippingAddress.PostalCode</td>
-                </tr>
-                <tr>
-                    <td>@shippingAddress.City</td>
-                </tr>
-                <tr>
-                    <td>
-                        @shippingAddress.Province
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @shippingAddress.Country
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Default: @if(shippingAddress.Default == true) { }
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="~/ShippingAddress/ShippingAddressEdit/@shippingAddress.Id">Edit Address</a>
-                    </td>
-                </tr>
+                <td>Yes</td>
             }
-        </table>
+            else
+            {
+                <td>No</td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <a href="~/ShippingAddress/ShippingAddressEdit/@shippingAddress.Id">Edit Address</a>
+
+            </td>
+        </tr>
+    }
+</table>
