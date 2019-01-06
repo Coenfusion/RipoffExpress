@@ -1,5 +1,5 @@
 ﻿using System;
-using RipoffExpress.Models.AccountModels;
+using RipoffExpress.Models;
 using RipoffExpress.Repository;
 using RipoffExpress.DAL;
 
@@ -23,7 +23,7 @@ namespace RipoffExpress.Logic
                 throw new Exception("Passwords do not match");
             }
             //B-01.1
-            if (!repo.CheckAvailability(a))
+            if (repo.CheckAvailability(a))
             {
                 throw new Exception("This account already exists.");
             }
@@ -51,15 +51,15 @@ namespace RipoffExpress.Logic
         }
         public void SaveChanges(AccountDetails CurrentDetails, AccountChanges NewDetails)
         {
-            if (NewDetails.CurrentPassword != NewDetails.CurrentPassword)
+            if (CurrentDetails.Password != NewDetails.CurrentPassword)
             {
                 throw new Exception("Password is incorrect.");
             }
-            if (!repo.CheckAvailability(new Account() { Email = NewDetails.Email, Username = ""}) && CurrentDetails.Email != NewDetails.Email)
+            if (repo.CheckAvailability(new Account() { Email = NewDetails.Email, Username = ""}))
             {
                 throw new Exception("Email is already in use.");
             }
-            if (!repo.CheckAvailability(new Account() { Username = NewDetails.Username, Email = "" }) && CurrentDetails.Username != NewDetails.Username)
+            if (repo.CheckAvailability(new Account() { Username = NewDetails.Username, Email = "" }))
             {
                 throw new Exception("Username is already in use.");
             }

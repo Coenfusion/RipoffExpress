@@ -1,33 +1,36 @@
-﻿@{
+﻿@using RipoffExpress.Models;
+
+@model IEnumerable<Category>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <script type="text/javascript" src="~/js/LoadPartial.js"></script>
 
-
-
-<div class="row"></div>
 <div class="row">
-    <div class="col-md-3">
-        <div class="productCategories" id="LoadCategories" data-url="@Url.Action("LoadCategories", "Home")">
-            
+    <div id="categoryBox" class="col-md-3">
+        <div class="productCategories" id="LoadCategories">
+            @foreach (Category Category in Model)
+            {
+                <input type="button" value="@Category.Name" onclick="AssignButtonClicked(@Category.Id)" />
+            }
         </div>
     </div>
-    <div class="col-md-9">
-        <div class="RecentProducts" id="LoadProducts" data-url="@Url.Action("MostRecentProducts", "Home")">
+    <div id ="productBox" class="col-md-9">
+        <div class="Products" id="LoadProducts" data-url="@Url.Action("MostRecentProducts", "Home")">
 
         </div>
     </div>
 </div>
 
 <script>
+    function AssignButtonClicked(elem) {
+        var url = "@Html.Raw(Url.Action("ProductOverview", "Home", new { id = "catId" }))"
+        url = url.replace("catId", elem);
+        $("#LoadProducts").load(url)
+    }
     $(document).ready(function () {
-        registerAjaxLinkLoad("#LoadProducts", ".RecentProducts");
-    })
-</script>
-
-<script>
-    $(document).ready(function () {
-        registerAjaxLinkLoad("#LoadCategories", ".productCategories");
+        registerAjaxLinkLoad("#LoadProducts", ".Products");
     })
 </script>

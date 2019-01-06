@@ -2,7 +2,6 @@
 using RipoffExpress.DAL.Interfaces;
 using RipoffExpress.DAL.MSSQLContext;
 using RipoffExpress.Models;
-using RipoffExpress.Models.ProductModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +21,9 @@ namespace RipoffExpress.Repository
                 case ContextType.MemoryContext: Context = new ProductContext(); break;
             }
         }
-
+        
+        public IEnumerable<ProductModelView> ProductByCategory(int? Id) =>Context.ProductByCategory(Id);
         public IEnumerable<ProductModelView> MostRecentProducts() => Context.MostRecentProducts();
         public IEnumerable<Category> LoadCategories() => Context.LoadCategories();
-
-
     }
 }

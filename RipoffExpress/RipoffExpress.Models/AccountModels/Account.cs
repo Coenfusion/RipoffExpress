@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RipoffExpress.Models.AccountModels
+namespace RipoffExpress.Models
 {
     public class Account
     {

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RipoffExpress.Models;
-using RipoffExpress.Models.ProductModels;
 
 namespace RipoffExpress.DAL.Interfaces
 {
@@ -12,5 +11,6 @@ namespace RipoffExpress.DAL.Interfaces
     {
         IEnumerable<ProductModelView> MostRecentProducts();
         IEnumerable<Category> LoadCategories();
+        IEnumerable<ProductModelView> ProductByCategory(int? Id);
     }
 }

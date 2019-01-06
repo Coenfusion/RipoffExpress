@@ -140,6 +140,7 @@
     <Compile Include="ProductModels\ProductModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShippingAddressModels\ShippingAddress.cs" />
+    <Compile Include="ShoppingCartModels\ShoppingCartViewModel.cs" />
     <Compile Include="StoreModels\Store.cs" />
   </ItemGroup>
   <ItemGroup>

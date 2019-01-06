@@ -1,4 +1,4 @@
-﻿@using RipoffExpress.Models.ProductModels;
+﻿@using RipoffExpress.Models;
 
 @model IEnumerable<ProductModelView>
 
@@ -10,13 +10,10 @@
 
     @foreach (var product in Model)
     {
-        
         <tr>
             <td><a href="#"><img src="@product.MediaUrl" alt="Product picture" /></a></td>
             <td><a href="">@product.Name</a></td>
             <td>@product.Price</td>
-        </tr>
-        
+        </tr>   
     }
-
 </table>

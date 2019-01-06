@@ -1,6 +1,5 @@
 ﻿using RipoffExpress.DAL.Interfaces;
 using RipoffExpress.Models;
-using RipoffExpress.Models.ProductModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +20,7 @@ namespace RipoffExpress.DAL.MSSQLContext
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "LatestProductsProcedure",
+                CommandText = "Pr_Latest",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -30,7 +29,7 @@ namespace RipoffExpress.DAL.MSSQLContext
             {
                 while (reader.Read())
                 {
-                    RecentProducts.Add(new ProductModelView(reader["MediaUrl"].ToString(), reader["Name"].ToString(), (decimal)reader["Price"]));
+                    RecentProducts.Add(new ProductModelView(reader["MediaUrl"].ToString(), reader["Name"].ToString(), (decimal)reader["Price"],(int)reader["Id"]));
                 }
             }
             return RecentProducts;
@@ -41,7 +40,7 @@ namespace RipoffExpress.DAL.MSSQLContext
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
-                CommandText = "LoadCategoryProcedure",
+                CommandText = "Pr_Categories",
                 CommandType = CommandType.StoredProcedure,
                 Connection = sqlConnection
             };
@@ -50,10 +49,31 @@ namespace RipoffExpress.DAL.MSSQLContext
             {
                 while (reader.Read())
                 {
-                    Categories.Add(new Category() {Name = reader["Name"].ToString()});
+                    Categories.Add(new Category() {Id = (int)reader["Id"], Name = reader["Name"].ToString()});
                 }
             }
             return Categories;
+        }
+        public IEnumerable<ProductModelView> ProductByCategory(int? Id)
+        {
+            List<ProductModelView> Products = new List<ProductModelView>();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Pr_ByCategory",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@Id", Id);
+            sqlConnection.Open();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Products.Add(new ProductModelView(reader["MediaUrl"].ToString(), reader["Name"].ToString(), (decimal)reader["Price"],(int)reader["Id"]));
+                }
+            }
+            return Products;
         }
     }
 }

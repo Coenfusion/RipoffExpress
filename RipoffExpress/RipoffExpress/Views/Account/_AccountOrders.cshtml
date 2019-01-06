@@ -1,1 +1,30 @@
-﻿
+﻿@using RipoffExpress.Models;
+
+@model IEnumerable<Order>
+
+
+<table>
+
+    @foreach (Order order in Model)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.OrderStatus</td>
+        </tr>
+        foreach (ProductModelView p in order.OrderItems)
+        {
+            <tr>
+                <td>
+                    @p.MediaUrl
+                </td>
+                <td>
+                    @p.Name
+                </td>
+                <td>
+                    @p.Price
+                </td>
+            </tr>
+        }
+    }
+
+</table>

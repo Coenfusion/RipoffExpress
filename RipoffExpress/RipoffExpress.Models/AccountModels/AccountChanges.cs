@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RipoffExpress.Models.AccountModels
+namespace RipoffExpress.Models
 {
     public class AccountChanges
     {

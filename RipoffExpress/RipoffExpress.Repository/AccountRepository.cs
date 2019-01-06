@@ -1,5 +1,5 @@
 ﻿using System;
-using RipoffExpress.Models.AccountModels;
+using RipoffExpress.Models;
 using RipoffExpress.DAL;
 using RipoffExpress.DAL.Interfaces;
 

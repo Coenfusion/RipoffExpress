@@ -3,14 +3,12 @@ using System.Data;
 using System.Data.SqlClient;
 using RipoffExpress.DAL.Interfaces;
 using RipoffExpress.Models;
-using RipoffExpress.Models.AccountModels;
-
 
 namespace RipoffExpress.DAL
 {
     public class AccountContext : IAccountContext
     {
-        private readonly string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RipOffExpress;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private readonly string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RipOffExpress;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public bool CheckAvailability(Account a)
         {
@@ -25,11 +23,7 @@ namespace RipoffExpress.DAL
             cmd.Parameters.AddWithValue("@Username", a.Username);
             sqlConnection.Open();
 
-            if ((int)cmd.ExecuteScalar() >= 1)
-            {
-                return false;
-            }
-            return true;
+            return (int)cmd.ExecuteScalar() >= 1;
         }
         public void Register(Account a)
         {
@@ -61,11 +55,7 @@ namespace RipoffExpress.DAL
             cmd.Parameters.AddWithValue("@Password", a.Password);
             sqlConnection.Open();
 
-            if ((int)cmd.ExecuteScalar() >= 1)
-            {
-                return true;
-            }
-            return false;
+            return (int)cmd.ExecuteScalar() >= 1;
         }
         public AccountDetails GetAccountDetails(int? Id)
         {
@@ -89,6 +79,7 @@ namespace RipoffExpress.DAL
                     accountDetails.Id = (int)reader["Id"];
                     accountDetails.Username = reader["Username"].ToString();
                     accountDetails.Email = reader["Email"].ToString();
+                    accountDetails.Password = reader["Password"].ToString();
 
                     shippingAddress.PhoneNumber = reader["PhoneNumber"].ToString();
                     shippingAddress.Address = reader["Address"].ToString();
@@ -104,11 +95,9 @@ namespace RipoffExpress.DAL
                     {
                         shippingAddress.Default = false;
                     }
-
                     accountDetails.ShippingAddress = shippingAddress;
                 }
             }
-
             return accountDetails;
         }
         public int GetUserId(Account a)

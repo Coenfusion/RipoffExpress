@@ -9,10 +9,6 @@ namespace RipoffExpress.Controllers
     {
         ShippingAddressLogic logic = new ShippingAddressLogic();
 
-        public IActionResult Index()
-        {
-            return View();
-        }
         //Create, Edit, Delete
         public PartialViewResult ShippingAddressCreation()
         {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace RipoffExpress.Models.AccountModels
+namespace RipoffExpress.Models
 {
     public class AccountDetails
     {
@@ -25,6 +25,7 @@ namespace RipoffExpress.Models.AccountModels
 
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Current Password")]
         public string Password { get; set; }
 
         [Required]

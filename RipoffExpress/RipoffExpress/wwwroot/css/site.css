@@ -66,3 +66,11 @@ body {
     -webkit-justify-content: center;
     justify-content: center;
 }
+
+/* Index.cshtml */
+#categoryBox{
+    margin-top:10%;
+}
+#productBox{
+    margin-top:10%;
+}

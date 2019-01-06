@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RipoffExpress.Logic.ProductLogic;
+using RipoffExpress.Logic;
 using RipoffExpress.Models;
 
 namespace RipoffExpress.Controllers
@@ -12,13 +13,24 @@ namespace RipoffExpress.Controllers
     public class HomeController : Controller
     {
         ProductLogic ProductLogic = new ProductLogic();
+        AccountLogic AccountLogic = new AccountLogic();
+        OrderLogic OrderLogic = new OrderLogic();
 
         [TempData]
         public string ErrorMessage { get; set; }
 
         public IActionResult Index()
         {
-            return View();
+            return View(ProductLogic.LoadCategories());
+        }
+        public IActionResult ShoppingCart()
+        {
+            ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
+            {
+                account = AccountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")),
+                order = OrderLogic.OrderByStatus(HttpContext.Session.GetInt32("UserId"), OrderStatus.ShoppingCart)
+            };
+            return View(shoppingCartViewModel);
         }
         [HttpGet]
         public PartialViewResult MostRecentProducts()
@@ -26,20 +38,10 @@ namespace RipoffExpress.Controllers
             return PartialView("../Product/_ProductOverview", ProductLogic.MostRecentProducts());
         }
         [HttpGet]
-        public PartialViewResult LoadCategories()
+        public PartialViewResult ProductOverview(int? id)
         {
-            return PartialView("../Product/_ProductCategory", ProductLogic.LoadCategories());
-        }
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            var pid = id ?? 1;
+            return PartialView("../Product/_ProductOverview", ProductLogic.ProductByCategory(pid));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

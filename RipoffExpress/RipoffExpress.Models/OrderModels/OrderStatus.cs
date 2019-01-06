@@ -8,10 +8,10 @@ namespace RipoffExpress.Models
 {
     public enum OrderStatus
     {
-        AwaitingPayment,
-        AwaitingShipment,
-        Delivered,
-        ShoppingCart,
-        Wishlist,
+        AwaitingPayment = 0,
+        AwaitingShipment = 1,
+        Delivered = 2,
+        ShoppingCart = 3,
+        Wishlist = 4,
     }
 }
