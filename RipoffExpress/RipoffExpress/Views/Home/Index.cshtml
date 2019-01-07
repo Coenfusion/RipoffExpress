@@ -13,7 +13,7 @@
         <div class="productCategories" id="LoadCategories">
             @foreach (Category Category in Model)
             {
-                <input type="button" value="@Category.Name" onclick="AssignButtonClicked(@Category.Id)" />
+                <input type="button" value="@Category.Name" onclick="ShowProducts(@Category.Id)" />
             }
         </div>
     </div>
@@ -25,9 +25,9 @@
 </div>
 
 <script>
-    function AssignButtonClicked(elem) {
+    function ShowProducts(prop) {
         var url = "@Html.Raw(Url.Action("ProductOverview", "Home", new { id = "catId" }))"
-        url = url.replace("catId", elem);
+        url = url.replace("catId", prop);
         $("#LoadProducts").load(url)
     }
     $(document).ready(function () {
