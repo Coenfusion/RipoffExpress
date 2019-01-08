@@ -8,7 +8,7 @@ namespace RipoffExpress.Models
 {
     public class Product
     {
-        public Category CategoryName { get; set; }
+        public Category Category { get; set; }
         public int Store_Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

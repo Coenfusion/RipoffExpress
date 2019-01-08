@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Shoppingcart\" />
+    <Folder Include="wwwroot\images\uploads\product\" />
   </ItemGroup>
 
 </Project>

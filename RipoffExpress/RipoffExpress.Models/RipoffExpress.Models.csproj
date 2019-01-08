@@ -131,7 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModels\AccountChanges.cs" />
-    <Compile Include="AccountModels\AccountDetails.cs" />
+    <Compile Include="CategoryModels\AccountDetails.cs" />
     <Compile Include="AccountModels\Account.cs" />
     <Compile Include="CategoryModels\Category.cs" />
     <Compile Include="OrderModels\OrderStatus.cs" />

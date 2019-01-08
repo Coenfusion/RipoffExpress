@@ -6,14 +6,14 @@
     ViewData["Title"] = "RipOffExpress";
 }
 
-<table>
+<table id="productTable">
 
     @foreach (var product in Model)
     {
         <tr>
-            <td><a href="#"><img src="@product.MediaUrl" alt="Product picture" /></a></td>
-            <td><a href="">@product.Name</a></td>
-            <td>@product.Price</td>
-        </tr>   
+            <td><a href="@Url.Action("Product","Product", new { Id = product.Id })"><img src="@product.MediaUrl" alt="Product picture" /></a></td>
+            <td id="productName"><a href="@Url.Action("Product","Product", new { Id = product.Id })">@product.Name</a></td>
+            <td>&euro; @product.Price</td>
+        </tr>
     }
 </table>

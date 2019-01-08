@@ -11,13 +11,21 @@
 <div class="row">
     <div id="categoryBox" class="col-md-3">
         <div class="productCategories" id="LoadCategories">
-            @foreach (Category Category in Model)
-            {
-                <input type="button" value="@Category.Name" onclick="ShowProducts(@Category.Id)" />
-            }
+            <h4>Categories</h4>
+            <table>
+                @foreach (Category Category in Model)
+                {
+                    <tr>
+                        <td>
+                            <a value="@Category.Name" onclick="ShowProducts(@Category.Id)">@Category.Name</a>
+                        </td>
+                    </tr>
+                }
+            </table>
         </div>
     </div>
-    <div id ="productBox" class="col-md-9">
+    <div class="col-md-1"></div>
+    <div id ="productBox" class="col-md-8">
         <div class="Products" id="LoadProducts" data-url="@Url.Action("MostRecentProducts", "Home")">
 
         </div>

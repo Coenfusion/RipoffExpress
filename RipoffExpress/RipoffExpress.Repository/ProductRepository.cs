@@ -21,7 +21,9 @@ namespace RipoffExpress.Repository
                 case ContextType.MemoryContext: Context = new ProductContext(); break;
             }
         }
-        
+
+        public Product ProductById(int? Id) => Context.ProductById(Id);
+
         public IEnumerable<ProductModelView> ProductByCategory(int? Id) =>Context.ProductByCategory(Id);
         public IEnumerable<ProductModelView> MostRecentProducts() => Context.MostRecentProducts();
         public IEnumerable<Category> LoadCategories() => Context.LoadCategories();

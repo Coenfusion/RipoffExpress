@@ -70,10 +70,38 @@ namespace RipoffExpress.DAL.MSSQLContext
             {
                 while (reader.Read())
                 {
-                    Products.Add(new ProductModelView(reader["MediaUrl"].ToString(), reader["Name"].ToString(), (decimal)reader["Price"],(int)reader["Id"]));
+                    Products.Add(new ProductModelView(reader["MediaUrl"].ToString(), reader["Name"].ToString(), (decimal)reader["Price"], (int)reader["Id"]));
                 }
             }
             return Products;
+        }
+        public Product ProductById(int? Id)
+        {
+            Product p = new Product();
+            Category c = new Category();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Pr_ById",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@Id", Id);
+            sqlConnection.Open();
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    p.Name = (string)reader["Name"];
+                    p.Description = (string)reader["Description"];
+                    p.Price = (decimal)reader["Price"];
+                    p.MediaUrl = (string)reader["MediaUrl"];
+                    c.Id = (int)reader["Category_Id"];
+                    p.Category = c;
+                    p.Store_Id = (int)reader["Store_Id"];
+                }
+            }
+            return p;
         }
     }
 }

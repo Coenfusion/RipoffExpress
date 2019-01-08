@@ -12,5 +12,6 @@ namespace RipoffExpress.DAL.Interfaces
         IEnumerable<ProductModelView> MostRecentProducts();
         IEnumerable<Category> LoadCategories();
         IEnumerable<ProductModelView> ProductByCategory(int? Id);
+        Product ProductById(int? Id);
     }
 }

@@ -30,7 +30,7 @@ namespace RipoffExpress.DAL
                     Enum.TryParse(reader[3].ToString(), out OrderStatus status);
                     Order o = new Order
                     {
-                        Id = (int)reader[4],
+                        Id = (int)reader[5],
                         OrderStatus = status
                     };
                     o.OrderItems.Add(new ProductModelView((string)reader[0], (string)reader[1], (decimal)reader[2], (int)reader[3]));

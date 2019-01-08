@@ -14,6 +14,7 @@ namespace RipoffExpress.Logic
         public IEnumerable<Category> LoadCategories() => repo.LoadCategories();
         
         public IEnumerable<ProductModelView> ProductByCategory(int? Id) => repo.ProductByCategory(Id);
-        
+
+        public Product ProductById(int? Id) => repo.ProductById(Id);
     }
 }

@@ -70,7 +70,31 @@ body {
 /* Index.cshtml */
 #categoryBox{
     margin-top:10%;
+    border:1px solid black;
+    min-height: 650px;
 }
-#productBox{
-    margin-top:10%;
+#productBox {
+    margin-top: 10%;
+    border: 1px solid black;
+    min-height: 650px;
+    margin-left:-5%;
+}
+#productTable td {
+    border: 1px solid #ddd;
+    padding: 30px;
+}
+#productName {
+    min-width:65%;
+}
+.productCategories a {
+    text-decoration: none;
+}
+.productCategories td:hover{
+    border-top:1px solid grey;
+    border-bottom:1px solid grey;
+    cursor:pointer;
+    width:100%;
+}
+.ProductPage {
+    margin-top: 10%;
 }
