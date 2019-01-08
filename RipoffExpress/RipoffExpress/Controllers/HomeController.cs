@@ -18,26 +18,40 @@ namespace RipoffExpress.Controllers
 
         [TempData]
         public string ErrorMessage { get; set; }
-
         public IActionResult Index()
         {
-            return View(ProductLogic.LoadCategories());
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(string criteria)
+        {
+            return View(ProductLogic.ProductByCiteria(criteria));
         }
         public IActionResult ShoppingCart()
         {
-            ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
+            if (HttpContext.Session.GetInt32("UserId") != null)
             {
-                account = AccountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")),
-                order = OrderLogic.OrderByStatus(HttpContext.Session.GetInt32("UserId"), OrderStatus.ShoppingCart)
-            };
-            return View(shoppingCartViewModel);
+                ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
+                {
+                    account = AccountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")),
+                    order = OrderLogic.OrderByStatus(HttpContext.Session.GetInt32("UserId"), OrderStatus.ShoppingCart)
+                };
+                return View(shoppingCartViewModel);
+            }
+            ErrorMessage = "Log in before visiting your shopping cart.";
+            return RedirectToAction("AccountLogin", "Account");
+        }
+        [HttpGet]
+        public PartialViewResult ProductCategories()
+        {
+            return PartialView("../Product/_ProductCategory", ProductLogic.LoadCategories());
         }
         [HttpGet]
         public PartialViewResult MostRecentProducts()
         {
             return PartialView("../Product/_ProductOverview", ProductLogic.MostRecentProducts());
         }
-        [HttpGet]
+        [HttpGet] 
         public PartialViewResult ProductOverview(int? id)
         {
             var pid = id ?? 1;

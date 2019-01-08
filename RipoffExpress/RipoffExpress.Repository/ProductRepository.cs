@@ -26,6 +26,9 @@ namespace RipoffExpress.Repository
 
         public IEnumerable<ProductModelView> ProductByCategory(int? Id) =>Context.ProductByCategory(Id);
         public IEnumerable<ProductModelView> MostRecentProducts() => Context.MostRecentProducts();
+
+        public IEnumerable<ProductModelView> ProductByCriteria(string criteria) => Context.ProductByCriteria(criteria);
+
         public IEnumerable<Category> LoadCategories() => Context.LoadCategories();
     }
 }

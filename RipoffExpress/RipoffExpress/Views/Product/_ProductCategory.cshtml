@@ -6,11 +6,14 @@
     ViewData["Title"] = "RipOffExpress";
 }
 
-<ul>
-
+<h4>Categories</h4>
+<table>
     @foreach (Category Category in Model)
     {
-        <li><a href="">@Category.Name</a></li>
+        <tr>
+            <td>
+                <a value="@Category.Name" onclick="ShowProducts(@Category.Id)">@Category.Name</a>
+            </td>
+        </tr>
     }
-
-</ul>
+</table>

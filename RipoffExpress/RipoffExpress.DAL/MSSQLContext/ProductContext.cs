@@ -103,5 +103,27 @@ namespace RipoffExpress.DAL.MSSQLContext
             }
             return p;
         }
+
+        public IEnumerable<ProductModelView> ProductByCriteria(string criteria)
+        {
+            List<ProductModelView> Products = new List<ProductModelView>();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Pr_ByCriteria",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@criteria", criteria);
+            sqlConnection.Open();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Products.Add(new ProductModelView(reader["MediaUrl"].ToString(), reader["Name"].ToString(), (decimal)reader["Price"], (int)reader["Id"]));
+                }
+            }
+            return Products;
+        }
     }
 }

@@ -13,5 +13,6 @@ namespace RipoffExpress.DAL.Interfaces
         IEnumerable<Category> LoadCategories();
         IEnumerable<ProductModelView> ProductByCategory(int? Id);
         Product ProductById(int? Id);
+        IEnumerable<ProductModelView> ProductByCriteria(string criteria);
     }
 }

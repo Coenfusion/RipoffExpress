@@ -1,6 +1,6 @@
 ﻿@using RipoffExpress.Models;
 
-@model IEnumerable<Category>
+@model IEnumerable<ProductModelView>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -10,35 +10,46 @@
 
 <div class="row">
     <div id="categoryBox" class="col-md-3">
-        <div class="productCategories" id="LoadCategories">
-            <h4>Categories</h4>
-            <table>
-                @foreach (Category Category in Model)
+        <div class="productCategories" id="LoadCategories" data-url="@Url.Action("ProductCategories", "Home")">
+
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    @if (Model != null)
+    {
+        <div id="productBox" class="col-md-8">
+            <table id="productTable">
+                @foreach (var product in Model)
                 {
                     <tr>
-                        <td>
-                            <a value="@Category.Name" onclick="ShowProducts(@Category.Id)">@Category.Name</a>
-                        </td>
+                        <td><a href="@Url.Action("Product","Product", new { Id = product.Id })"><img src="~/images/uploads/product/@product.MediaUrl" alt="Product picture" style="max-width:150px;" /></a></td>
+                        <td id="productName"><a href="@Url.Action("Product","Product", new { Id = product.Id })">@product.Name</a></td>
+                        <td>&euro; @product.Price</td>
                     </tr>
                 }
             </table>
         </div>
-    </div>
-    <div class="col-md-1"></div>
-    <div id ="productBox" class="col-md-8">
-        <div class="Products" id="LoadProducts" data-url="@Url.Action("MostRecentProducts", "Home")">
+    }
+    else
+    {
+        <div id="productBox" class="col-md-8">
+            <div class="Products" id="LoadProducts" data-url="@Url.Action("MostRecentProducts", "Home")">
 
+            </div>
         </div>
-    </div>
+    }
 </div>
 
-<script>
+            <script>
     function ShowProducts(prop) {
         var url = "@Html.Raw(Url.Action("ProductOverview", "Home", new { id = "catId" }))"
         url = url.replace("catId", prop);
         $("#LoadProducts").load(url)
     }
     $(document).ready(function () {
+        registerAjaxLinkLoad("#LoadCategories", ".productCategories");
+    })
+    $(document).ready(function () {
         registerAjaxLinkLoad("#LoadProducts", ".Products");
     })
-</script>
+            </script>

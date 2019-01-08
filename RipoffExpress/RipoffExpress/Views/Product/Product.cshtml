@@ -10,7 +10,7 @@
             <div class="ProductPage">
                 <div class="col-md-4">
                     <div class="ProductPicture">
-                        <img src="@Model.MediaUrl" alt="picture url" style="max-height:300px; max-width:300px; border:1px solid black;" />
+                        <img src="~/images/uploads/product/@Model.MediaUrl" alt="picture url" style="max-height:300px; max-width:300px; border:1px solid black;" />
                     </div>
                     <div class="ProductMedia">
                         <!-- Pictureboxes -->
@@ -23,8 +23,8 @@
                             @Model.Description
                         </p>
                         <p>
-                            @Model.Price <br />
-                            <input type="number" /> Amount <button>Add to cart<!-- Add to cart --></button> <br />
+                            &euro; @Model.Price <br />
+                            <input type="number" /> <button>Add to cart<!-- Add to cart --></button> <br />
                             <button> Wishlist<!-- Add to wishlist --></button>
                         </p>
                         <!-- price, details, add to cart, add to wishlist and related products-->

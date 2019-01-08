@@ -77,14 +77,16 @@ body {
     margin-top: 10%;
     border: 1px solid black;
     min-height: 650px;
-    margin-left:-5%;
+    max-height:650px;
+    margin-left: -5%;
+    overflow-y: scroll;
 }
 #productTable td {
     border: 1px solid #ddd;
     padding: 30px;
 }
 #productName {
-    min-width:65%;
+    min-width:55%;
 }
 .productCategories a {
     text-decoration: none;
@@ -98,3 +100,15 @@ body {
 .ProductPage {
     margin-top: 10%;
 }
+#LoadPartials{
+    text-align:left;
+}
+.ProductDetails{
+    text-align:left;
+}
+.ProductDetails p{
+    font-size:20px;
+}
+.Products {
+}
+                 

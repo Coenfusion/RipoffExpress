@@ -24,5 +24,10 @@ namespace RipoffExpress.Controllers
             int pid = Id ?? 1;
             return View(ProductLogic.ProductById(pid));
         }
+        [HttpGet]
+        public PartialViewResult ProductByCriteria(string criteria)
+        {
+            return PartialView("../Product/_ProductOverview", ProductLogic.ProductByCiteria(criteria));
+        }
     }
 }

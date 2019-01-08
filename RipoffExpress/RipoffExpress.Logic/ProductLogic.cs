@@ -16,5 +16,14 @@ namespace RipoffExpress.Logic
         public IEnumerable<ProductModelView> ProductByCategory(int? Id) => repo.ProductByCategory(Id);
 
         public Product ProductById(int? Id) => repo.ProductById(Id);
+
+        public IEnumerable<ProductModelView> ProductByCiteria(string criteria)
+        {
+            if (string.IsNullOrEmpty(criteria))
+            {
+                return null;
+            }
+            return repo.ProductByCriteria(criteria);
+        }
     }
 }
