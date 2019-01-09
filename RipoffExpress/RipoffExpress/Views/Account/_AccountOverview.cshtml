@@ -2,22 +2,24 @@
 
 @model AccountDetails
 
+@{ ShippingAddress s = Model.AddressBook.FirstOrDefault(x => x.Default == true);   }
+
    <b>Account Details</b>
     <p>
         <table>
             <tr><td>Username:   </td><td> @Model.Username  </td></tr>
             <tr><td>E-mail:     </td><td> @Model.Email     </td></tr>
-            <tr><td>Phone:      </td><td> @Model.ShippingAddress.PhoneNumber  </td></tr>
+            <tr><td>Phone:      </td><td> @s.PhoneNumber </td></tr>
         </table>
     </p><b>Default Shipping Address</b>
     <p>
         
         <table>
-            <tr><td>Address:        </td><td> @Model.ShippingAddress.Address    </td></tr>
-            <tr><td>Postal Code:    </td><td> @Model.ShippingAddress.PostalCode </td></tr>
-            <tr><td>City:           </td><td> @Model.ShippingAddress.City       </td></tr>
-            <tr><td>Province:       </td><td> @Model.ShippingAddress.Province   </td></tr>
-            <tr><td>Country:        </td><td> @Model.ShippingAddress.Country    </td></tr>
+            <tr><td>Address:        </td><td> @s.Address    </td></tr>
+            <tr><td>Postal Code:    </td><td> @s.PostalCode </td></tr>
+            <tr><td>City:           </td><td> @s.City       </td></tr>
+            <tr><td>Province:       </td><td> @s.Province   </td></tr>
+            <tr><td>Country:        </td><td> @s.Country    </td></tr>
         </table>
     </p>
 

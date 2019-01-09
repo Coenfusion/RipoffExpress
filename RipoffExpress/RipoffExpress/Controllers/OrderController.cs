@@ -16,5 +16,10 @@ namespace RipoffExpress.Controllers
             OrderLogic.RemoveProductFromOrder(productId, orderId);
             return RedirectToAction("ShoppingCart", "Home");
         }
+        public IActionResult OrderFinalization(int? orderId)
+        {
+            OrderLogic.OrderFinalization(orderId);
+            return View(OrderLogic.OrderById(orderId));
+        }
     }
 }

@@ -28,13 +28,7 @@ namespace RipoffExpress.DAL
                 while (reader.Read())
                 {
                     Enum.TryParse(reader[0].ToString(), out OrderStatus status);
-                    Order o = new Order
-                    {
-                        OrderStatus = status,
-                        Id = (int)reader[1],
-                        OrderTime = (string)reader[2]
-                    };
-                    o.OrderItems = FillOrder(o.Id);
+                    Order o = new Order((int)reader[1], status, (string)reader[2], FillOrder((int)reader[1]));
                     Orders.Add(o);
                 }
             }
@@ -65,7 +59,7 @@ namespace RipoffExpress.DAL
         }
         public Order OrderByStatus(int? Id, OrderStatus status)
         {
-            Order o = new Order();
+            Order order = new Order();
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
@@ -80,14 +74,12 @@ namespace RipoffExpress.DAL
             {
                 while (reader.Read())
                 {
-                    o.Id = (int)reader[5];
-                    o.OrderStatus = status;
-                    o.OrderItems.Add(new ProductModelView((string)reader["MediaUrl"], (string)reader["Name"], (string)reader["Description"], (decimal)reader["Price"], (int)reader[4]));
+                    Order tempOrder = new Order((int)reader[0], status, (string)reader[2], FillOrder((int)reader[0]));
+                    order = tempOrder;
                 }
             }
-            return o;
+            return order;
         }
-
         public void RemoveProductFromOrder(int? productId, int? orderId)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
@@ -98,6 +90,42 @@ namespace RipoffExpress.DAL
                 Connection = sqlConnection
             };
             cmd.Parameters.AddWithValue("@productId", productId);
+            cmd.Parameters.AddWithValue("@orderId", orderId);
+            sqlConnection.Open();
+            cmd.ExecuteNonQuery();
+            sqlConnection.Close();
+        }
+        public Order OrderById(int? orderId)
+        {
+            Order order = new Order();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Or_ById",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@Id", orderId);
+            sqlConnection.Open();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Order tempOrder = new Order((int)reader[0], (OrderStatus)reader[1], (string)reader[2], FillOrder((int)reader[0]));
+                    order = tempOrder;
+                }
+            }
+            return order;
+        }
+        public void OrderFinalization(int? orderId)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Or_Finalize",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
             cmd.Parameters.AddWithValue("@orderId", orderId);
             sqlConnection.Open();
             cmd.ExecuteNonQuery();

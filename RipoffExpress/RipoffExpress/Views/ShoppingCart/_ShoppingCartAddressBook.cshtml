@@ -1,0 +1,14 @@
+﻿@using RipoffExpress.Models;
+
+@model ShoppingCartViewModel
+
+@{ ShippingAddress s = Model.Account.AddressBook.FirstOrDefault(x => x.Default == true); }
+
+<select id="addressId">
+    <option selected="selected" value="@s.Id">@s.Address, @s.PostalCode, @s.City, @s.Country</option>
+    @foreach (ShippingAddress sa in Model.Account.AddressBook.Where(x => x.Default == false))
+    {
+        <option value="@sa.Id">@sa.Address, @sa.PostalCode, @sa.City, @sa.Country</option>
+    }
+</select>
+<a class="btn btn-success" href="@Url.Action("OrderFinalization","Order", new { orderId = @Model.Order.Id })">Check Out</a>

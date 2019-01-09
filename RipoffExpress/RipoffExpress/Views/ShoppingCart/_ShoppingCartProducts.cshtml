@@ -1,0 +1,26 @@
+﻿@using RipoffExpress;
+
+@model ShoppingCartViewModel
+
+<table>
+
+    @foreach (ProductModelView product in Model.Order.OrderItems)
+    {
+
+        <tr>
+            <td>
+                <img src="~/images/uploads/product/@product.MediaUrl" alt="ProductImage" style="max-height:150px;" />
+            </td>
+            <td>
+                @product.Name
+            </td>
+            <td>
+                &euro; @product.Price
+            </td>
+            <td>
+                <a class="btn btn-success" href="@Url.Action("RemoveProductFromOrder", "Order" , new { productId = product.Id, orderId = Model.Order.Id })">Remove</a>
+            </td>
+        </tr>
+    }
+    <!--button to remove products, possibly up amount of products  and link to product-->
+</table>

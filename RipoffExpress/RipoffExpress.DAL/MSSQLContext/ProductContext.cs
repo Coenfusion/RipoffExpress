@@ -49,7 +49,7 @@ namespace RipoffExpress.DAL.MSSQLContext
             {
                 while (reader.Read())
                 {
-                    Categories.Add(new Category() {Id = (int)reader["Id"], Name = reader["Name"].ToString()});
+                    Categories.Add(new Category((int)reader["Id"], (string)reader["Name"]));
                 }
             }
             return Categories;
@@ -77,8 +77,7 @@ namespace RipoffExpress.DAL.MSSQLContext
         }
         public Product ProductById(int? Id)
         {
-            Product p = new Product();
-            Category c = new Category();
+            Product product = new Product(); ;
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand
             {
@@ -92,18 +91,20 @@ namespace RipoffExpress.DAL.MSSQLContext
             {
                 if (reader.Read())
                 {
-                    p.Name = (string)reader["Name"];
-                    p.Description = (string)reader["Description"];
-                    p.Price = (decimal)reader["Price"];
-                    p.MediaUrl = (string)reader["MediaUrl"];
-                    c.Id = (int)reader["Category_Id"];
-                    p.Category = c;
-                    p.Store_Id = (int)reader["Store_Id"];
+                    Product tempProduct = new Product(
+                        (int)reader["Id"], 
+                        (string)reader["Name"], 
+                        (string)reader["Description"],
+                        (decimal)reader["Price"], 
+                        (string)reader["MediaUrl"], 
+                        new Category((int)reader["Category_Id"]),
+                        (int)reader["Store_Id"]
+                        );
+                    product = tempProduct;
                 }
             }
-            return p;
+            return product;
         }
-
         public IEnumerable<ProductModelView> ProductByCriteria(string criteria)
         {
             List<ProductModelView> Products = new List<ProductModelView>();

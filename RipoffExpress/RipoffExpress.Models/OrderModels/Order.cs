@@ -9,10 +9,23 @@ namespace RipoffExpress.Models
 {
     public class Order
     {
-        public int Id { get; set; }
-        public OrderStatus OrderStatus { get; set; }
-        public string OrderTime { get; set; }
+        public Order()
+        {
+
+        }
+        public Order(int Id, OrderStatus status, string OrderTime, List<ProductModelView> orderItems)
+        {
+            this.Id = Id;
+            this.OrderStatus = status;
+            this.OrderTime = OrderTime;
+            this.OrderItems = orderItems;
+        }
+
+        public int Id { get; private set; }
+        public OrderStatus OrderStatus { get; private set; }
+        public string OrderTime { get; private set; }
 
         public List<ProductModelView> OrderItems = new List<ProductModelView>();
+
     }
 }

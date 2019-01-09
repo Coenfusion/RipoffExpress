@@ -28,24 +28,24 @@ namespace RipoffExpress.Models
             this.PhoneNumber = PhoneNumber;
             this.Default = Default;
         }
-        public int? Id { get; set; }
+        public int? Id { get; private set; }
         [Display(Name = "Address")]
-        public string Address { get; set; }
+        public string Address { get; private set; }
 
         [Display(Name = "Postal Code")]
-        public string PostalCode { get; set; }
+        public string PostalCode { get; private set; }
 
         [Display(Name = "City")]
-        public string City { get; set; }
+        public string City { get; private set; }
 
         [Display(Name = "Province")]
-        public string Province { get; set; }
+        public string Province { get; private set; }
 
         [Display(Name = "Country")]
-        public string Country { get; set; }
+        public string Country { get; private set; }
 
         [Display(Name = "Phone Number")]
-        public string PhoneNumber { get; set; }
-        public bool Default { get; set; }
+        public string PhoneNumber { get; private set; }
+        public bool Default { get; private set; }
      }
 }

@@ -39,8 +39,7 @@
         </div>
     }
 </div>
-
-            <script>
+<script>
     function ShowProducts(prop) {
         var url = "@Html.Raw(Url.Action("ProductOverview", "Home", new { id = "catId" }))"
         url = url.replace("catId", prop);
@@ -52,4 +51,4 @@
     $(document).ready(function () {
         registerAjaxLinkLoad("#LoadProducts", ".Products");
     })
-            </script>
+</script>

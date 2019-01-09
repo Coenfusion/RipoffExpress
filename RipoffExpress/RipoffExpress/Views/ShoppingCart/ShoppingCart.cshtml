@@ -1,0 +1,33 @@
+﻿@using RipoffExpress.Models;
+
+@model ShoppingCartViewModel
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+
+    <script type="text/javascript" src="~/js/LoadPartial.js"></script>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="shoppingCartProducts" id="LoadProducts" data-url="@Url.Action("ShoppingCartProducts","ShoppingCart")">
+
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="shoppingCartAddressBook" id="LoadAddressBook" data-url="@Url.Action("ShoppingCartAddressBook","ShoppingCart")">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function () {
+        registerAjaxLinkLoad("#LoadProducts", ".shoppingCartProducts");
+    })
+
+    $(document).ready(function () {
+        registerAjaxLinkLoad("#LoadAddressBook", ".shoppingCartAddressBook");
+    })
+        
+    </script>

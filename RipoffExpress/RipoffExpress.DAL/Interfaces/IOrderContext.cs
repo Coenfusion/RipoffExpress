@@ -12,5 +12,7 @@ namespace RipoffExpress.DAL
         List<Order> OrderOverview(int? id);
         Order OrderByStatus(int? id, OrderStatus status);
         void RemoveProductFromOrder(int? productId, int? orderId);
+        Order OrderById(int? orderId);
+        void OrderFinalization(int? orderId);
     }
 }

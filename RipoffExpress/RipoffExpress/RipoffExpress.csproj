@@ -15,8 +15,4 @@
     <ProjectReference Include="..\RipoffExpress.Models\RipoffExpress.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Shoppingcart\" />
-  </ItemGroup>
-
 </Project>

@@ -110,14 +110,20 @@ namespace RipoffExpress.DAL
             {
                 if (reader.Read())
                 {
-                    shippingAddress.Id = (int)reader["Id"];
-                    shippingAddress.Address = (string)reader["Address"];
-                    shippingAddress.PostalCode = (string)reader["PostalCode"];
-                    shippingAddress.City = (string)reader["City"];
-                    shippingAddress.Province = (string)reader["Province"];
-                    shippingAddress.Country = (string)reader["Country"];
-                    shippingAddress.PhoneNumber = (string)reader["PhoneNumber"];
-                    if ((int)reader["Default"] == 1) { shippingAddress.Default = true; } else { shippingAddress.Default = false; }
+                    bool _default = false;
+
+                    if ((int)reader["Default"] == 1) { _default = true; } else { _default = false; }
+
+                    ShippingAddress tempAddress = new ShippingAddress(
+                        (int?)reader["Id"],
+                        (string)reader["Address"],
+                        (string)reader["PostalCode"],
+                        (string)reader["City"],
+                        (string)reader["Province"],
+                        (string)reader["Country"],
+                        (string)reader["PhoneNumber"],
+                        _default);
+                    shippingAddress = tempAddress;
                 }
             }
             sqlConnection.Close();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using RipoffExpress.DAL.Interfaces;
@@ -70,32 +71,18 @@ namespace RipoffExpress.DAL
             sqlConnection.Open();
 
             AccountDetails accountDetails = new AccountDetails();
-            ShippingAddress shippingAddress = new ShippingAddress();
 
             using (var reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
                 {
-                    accountDetails.Id = (int)reader["Id"];
-                    accountDetails.Username = reader["Username"].ToString();
-                    accountDetails.Email = reader["Email"].ToString();
-                    accountDetails.Password = reader["Password"].ToString();
-
-                    shippingAddress.PhoneNumber = reader["PhoneNumber"].ToString();
-                    shippingAddress.Address = reader["Address"].ToString();
-                    shippingAddress.PostalCode = reader["PostalCode"].ToString();
-                    shippingAddress.City = reader["City"].ToString();
-                    shippingAddress.Province = reader["Province"].ToString();
-                    shippingAddress.Country = reader["Country"].ToString();
-                    if((int)reader["Default"] == 1)
-                    {
-                        shippingAddress.Default = true;
-                    }
-                    else
-                    {
-                        shippingAddress.Default = false;
-                    }
-                    accountDetails.ShippingAddress = shippingAddress;
+                    AccountDetails tempAcc = new AccountDetails(
+                        (int)reader["Id"],
+                        (string)reader["Username"],
+                        (string)reader["Email"],
+                        (string)reader["Password"],
+                        FillAddressBook(Id));
+                    accountDetails = tempAcc;
                 }
             }
             return accountDetails;
@@ -137,6 +124,45 @@ namespace RipoffExpress.DAL
             sqlConnection.Open();
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
+        }
+        private List<ShippingAddress> FillAddressBook(int? Id)
+        {
+            List<ShippingAddress> AddressBook = new List<ShippingAddress>();
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Ac_FillAddressBook",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@Id", Id);
+            sqlConnection.Open();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    bool Default;
+                    if ((int)reader["Default"] == 1)
+                    {
+                        Default = true;
+                    }
+                    else
+                    {
+                        Default = false;
+                    }
+                    AddressBook.Add(new ShippingAddress(
+                        (int)reader["Id"],
+                        (string)reader["Address"],
+                        (string)reader["PostalCode"],
+                        (string)reader["City"],
+                        (string)reader["Province"],
+                        (string)reader["Country"],
+                        (string)reader["PhoneNumber"],
+                        Default)
+                        );
+                }
+            }
+            return AddressBook;
         }
     }
 }

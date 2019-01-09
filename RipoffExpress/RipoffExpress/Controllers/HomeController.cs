@@ -13,8 +13,6 @@ namespace RipoffExpress.Controllers
     public class HomeController : Controller
     {
         ProductLogic ProductLogic = new ProductLogic();
-        AccountLogic AccountLogic = new AccountLogic();
-        OrderLogic OrderLogic = new OrderLogic();
 
         [TempData]
         public string ErrorMessage { get; set; }
@@ -26,20 +24,6 @@ namespace RipoffExpress.Controllers
         public IActionResult Index(string criteria)
         {
             return View(ProductLogic.ProductByCiteria(criteria));
-        }
-        public IActionResult ShoppingCart()
-        {
-            if (HttpContext.Session.GetInt32("UserId") != null)
-            {
-                ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
-                {
-                    Account = AccountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")),
-                    Order = OrderLogic.OrderByStatus(HttpContext.Session.GetInt32("UserId"), OrderStatus.ShoppingCart)
-                };
-                return View(shoppingCartViewModel);
-            }
-            ErrorMessage = "Log in before visiting your shopping cart.";
-            return RedirectToAction("AccountLogin", "Account");
         }
         [HttpGet]
         public PartialViewResult ProductCategories()

@@ -24,5 +24,9 @@ namespace RipoffExpress.Logic
             }
             return repo.OrderByStatus(Id, status);
         }
+
+        public Order OrderById(int? orderId) => repo.OrderById(orderId);
+
+        public void OrderFinalization(int? orderId) => repo.OrderFinalization(orderId);
     }
 }

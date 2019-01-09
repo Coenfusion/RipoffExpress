@@ -24,6 +24,10 @@ namespace RipoffExpress.Repository
 
         public List<Order> OrderOverview(int? id) => context.OrderOverview(id);
 
-        public Order OrderByStatus(int? id, OrderStatus status) => context.OrderByStatus(id, status); 
+        public Order OrderByStatus(int? id, OrderStatus status) => context.OrderByStatus(id, status);
+
+        public Order OrderById(int? orderId) => context.OrderById(orderId);
+
+        public void OrderFinalization(int? orderId) => context.OrderFinalization(orderId);
     }
 }
