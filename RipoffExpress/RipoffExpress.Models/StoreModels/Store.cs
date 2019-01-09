@@ -7,9 +7,10 @@ using RipoffExpress.Models;
 
 namespace RipoffExpress.Models
 {
-    public class Store
+    public class StoreViewModel
     {
         public Account Account { get; set; }
+        public List<Product> Products = new List<Product>();
         public string Name { get; set; }
         public string Description { get; set; }
         public string MediaUrl { get; set; }

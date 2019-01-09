@@ -27,20 +27,42 @@ namespace RipoffExpress.DAL
             {
                 while (reader.Read())
                 {
-                    Enum.TryParse(reader[3].ToString(), out OrderStatus status);
+                    Enum.TryParse(reader[0].ToString(), out OrderStatus status);
                     Order o = new Order
                     {
-                        Id = (int)reader[5],
-                        OrderStatus = status
+                        OrderStatus = status,
+                        Id = (int)reader[1],
+                        OrderTime = (string)reader[2]
                     };
-                    o.OrderItems.Add(new ProductModelView((string)reader[0], (string)reader[1], (decimal)reader[2], (int)reader[3]));
+                    o.OrderItems = FillOrder(o.Id);
                     Orders.Add(o);
                 }
             }
             sqlConnection.Close();
             return Orders;
         }
+        private List<ProductModelView> FillOrder(int? id)
+        {
+            List<ProductModelView> Products = new List<ProductModelView>();
 
+            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandText = "Or_FillOrder",
+                CommandType = CommandType.StoredProcedure,
+                Connection = sqlConnection
+            };
+            cmd.Parameters.AddWithValue("@OrderId", id);
+            sqlConnection.Open();
+            using(var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Products.Add(new ProductModelView((string)reader["MediaUrl"], (string)reader["Name"],(string)reader["Description"], (decimal)reader["Price"], (int)reader["Id"]));
+                }
+            }
+            return Products;
+        }
         public Order OrderByStatus(int? Id, OrderStatus status)
         {
             Order o = new Order();
@@ -58,9 +80,9 @@ namespace RipoffExpress.DAL
             {
                 while (reader.Read())
                 {
-                    o.Id = (int)reader[3];
+                    o.Id = (int)reader[5];
                     o.OrderStatus = status;
-                    o.OrderItems.Add(new ProductModelView((string)reader[0], (string)reader[1], (decimal)reader[2], (int)reader[4]));
+                    o.OrderItems.Add(new ProductModelView((string)reader["MediaUrl"], (string)reader["Name"], (string)reader["Description"], (decimal)reader["Price"], (int)reader[4]));
                 }
             }
             return o;

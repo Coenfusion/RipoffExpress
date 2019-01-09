@@ -2,16 +2,16 @@
 
 @model AccountDetails
 
-   
+   <b>Account Details</b>
     <p>
         <table>
             <tr><td>Username:   </td><td> @Model.Username  </td></tr>
             <tr><td>E-mail:     </td><td> @Model.Email     </td></tr>
             <tr><td>Phone:      </td><td> @Model.ShippingAddress.PhoneNumber  </td></tr>
         </table>
-    </p>
+    </p><b>Default Shipping Address</b>
     <p>
-        <b>Shipping Address</b>
+        
         <table>
             <tr><td>Address:        </td><td> @Model.ShippingAddress.Address    </td></tr>
             <tr><td>Postal Code:    </td><td> @Model.ShippingAddress.PostalCode </td></tr>

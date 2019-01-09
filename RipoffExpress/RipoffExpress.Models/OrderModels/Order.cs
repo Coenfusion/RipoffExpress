@@ -11,6 +11,7 @@ namespace RipoffExpress.Models
     {
         public int Id { get; set; }
         public OrderStatus OrderStatus { get; set; }
+        public string OrderTime { get; set; }
 
         public List<ProductModelView> OrderItems = new List<ProductModelView>();
     }

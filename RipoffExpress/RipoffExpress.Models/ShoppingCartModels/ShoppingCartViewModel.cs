@@ -8,7 +8,7 @@ namespace RipoffExpress.Models
 {
     public class ShoppingCartViewModel
     {
-        public AccountDetails account { get; set; }
-        public Order order { get; set; }
+        public AccountDetails Account { get; set; }
+        public Order Order { get; set; }
     }
 }

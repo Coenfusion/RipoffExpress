@@ -15,9 +15,18 @@ namespace RipoffExpress.Models
             this.Price = _Price;
             this.Id = Id;
         }
+        public ProductModelView(string _MediaUrl, string _Name, string Description, decimal _Price, int Id)
+        {
+            this.MediaUrl = _MediaUrl;
+            this.Name = _Name;
+            this.Description = Description;
+            this.Price = _Price;
+            this.Id = Id;
+        }
         public int Id { get; private set; }
         public string MediaUrl { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public decimal Price { get; set; }
 
     }

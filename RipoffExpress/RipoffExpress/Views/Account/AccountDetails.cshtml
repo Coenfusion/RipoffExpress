@@ -13,7 +13,7 @@
             <div class="col-md-2"> @ViewData["ErrorMessage"] </div>
             <div class="col-md-8">
                 <section>
-                    <h3>Account Details of @ViewData["SessionMessage"] </h3>
+                    <h4>Welcome back @ViewData["SessionMessage"] </h4>
                 </section>
             </div>
         </div>
@@ -21,6 +21,7 @@
             <div class="col-md-4">
                 <section>
                     <ul>
+                        <li><a id="LoadStore" href="@Url.Action("Store","Store")">Manage Store</a></li>
                         <li><a id="LoadOverview">Overview</a></li>
                         <li><a id="LoadChanges">Change Details</a></li>
                         <li><a id="LoadOrderHistory">Order History</a></li>
@@ -37,6 +38,7 @@
 
 <script type="text/javascript" src="~/js/LoadPartial.js"></script>
 <script>
+
     $('#LoadOverview').on('click', () => {
         $("#LoadPartials").load("@Html.Raw(Url.Action("AccountOverview", "Account")) ")
     });

@@ -10,12 +10,12 @@
     <div class="col-md-7">
         <table>
 
-            @foreach (ProductModelView product in Model.order.OrderItems)
+            @foreach (ProductModelView product in Model.Order.OrderItems)
             {
 
             <tr>
                 <td>
-                    <img src="@product.MediaUrl" alt="ProductImage" />
+                    <img src="~/images/uploads/product/@product.MediaUrl" alt="ProductImage" style="max-height:150px;"/>
                 </td>
                 <td>
                     @product.Name
@@ -24,7 +24,7 @@
                     &euro; @product.Price
                 </td>
                 <td>
-                    <a class="btn btn-success" href="@Url.Action("RemoveProductFromOrder", "Order" , new { productId = product.Id, orderId = Model.order.Id })">Remove</a>
+                    <a class="btn btn-success" href="@Url.Action("RemoveProductFromOrder", "Order" , new { productId = product.Id, orderId = Model.Order.Id })">Remove</a>
                 </td>
             </tr>
 
@@ -38,22 +38,22 @@
             <thead>Default Shipping Address</thead>
             <tr>
                 <td>
-                    @Model.account.ShippingAddress.Address
+                    @Model.Account.ShippingAddress.Address
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Model.account.ShippingAddress.PostalCode, @Model.account.ShippingAddress.City
+                    @Model.Account.ShippingAddress.PostalCode, @Model.Account.ShippingAddress.City
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Model.account.ShippingAddress.Province, @Model.account.ShippingAddress.Country
+                    @Model.Account.ShippingAddress.Province, @Model.Account.ShippingAddress.Country
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Model.account.ShippingAddress.PhoneNumber
+                    @Model.Account.ShippingAddress.PhoneNumber
                 </td>
             </tr>
         </table>

@@ -33,8 +33,8 @@ namespace RipoffExpress.Controllers
             {
                 ShoppingCartViewModel shoppingCartViewModel = new ShoppingCartViewModel
                 {
-                    account = AccountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")),
-                    order = OrderLogic.OrderByStatus(HttpContext.Session.GetInt32("UserId"), OrderStatus.ShoppingCart)
+                    Account = AccountLogic.GetAccountDetails(HttpContext.Session.GetInt32("UserId")),
+                    Order = OrderLogic.OrderByStatus(HttpContext.Session.GetInt32("UserId"), OrderStatus.ShoppingCart)
                 };
                 return View(shoppingCartViewModel);
             }

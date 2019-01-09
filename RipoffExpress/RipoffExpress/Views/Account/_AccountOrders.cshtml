@@ -2,29 +2,53 @@
 
 @model IEnumerable<Order>
 
-
-<table>
-
-    @foreach (Order order in Model)
-    {
+<h3>Orders</h3>
+<p>
+    <table>
         <tr>
-            <td>@order.Id</td>
-            <td>@order.OrderStatus</td>
+            <td>Awaiting Payment: @Model.Count(x => x.OrderStatus == OrderStatus.AwaitingPayment)</td>
+            <td>Awaiting Shipment: @Model.Count(x => x.OrderStatus == OrderStatus.AwaitingShipment)</td>
+            <td>Delivered: @Model.Count(x => x.OrderStatus == OrderStatus.Delivered)</td>
         </tr>
-        foreach (ProductModelView p in order.OrderItems)
+    </table>
+</p>
+<p>
+    <table>
+        @foreach (Order order in Model)
         {
-            <tr>
-                <td>
-                    @p.MediaUrl
-                </td>
-                <td>
-                    @p.Name
-                </td>
-                <td>
-                    @p.Price
-                </td>
-            </tr>
-        }
-    }
+            decimal orderPrice = 0;
 
-</table>
+            <tr>
+                <th colspan="2">Product</th>
+                <th>Order Status</th>
+            </tr>
+            <tr id="orderDetails">
+                <td colspan="2">Order ID: @order.Id<br />Order time & date: @order.OrderTime</td>
+                <td>@order.OrderStatus<br />Order amount: &euro; @orderPrice</td>
+            </tr>
+            foreach (ProductModelView p in order.OrderItems)
+            {
+                orderPrice += p.Price;
+                <tr>
+                    <td>
+                        <a href="@Url.Action("Product", "Product", new { Id = p.Id })">
+                            <div style="height:100%;width:100%;">
+                                <img src=~/images/uploads/product/@p.MediaUrl alt="Product pic" style="max-height:150px;">
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action(" Product", "Product" , new { Id=p.Id })">
+                            <div style="height:100%;width:100%;">
+                                @p.Name <br />
+                                @p.Description <br />
+                                &euro; @p.Price
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</p>
