@@ -20,6 +20,12 @@ namespace RipoffExpress.Models
             this.Password = _password;
             this.RepeatPassword = _rpassword;
         }
+        public Account(int _id, string _email, string _username)
+        {
+            this.Id = _id;
+            this.Email = _email;
+            this.Username = _username;
+        }
         public Account(int _id, string _email, string _username, ShippingAddress _shippingAddress)
         {
             this.Id = _id;

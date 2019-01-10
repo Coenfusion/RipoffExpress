@@ -1,4 +1,6 @@
 ﻿@using RipoffExpress.Models;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Http;
 
 @model StoreViewModel
 
@@ -6,6 +8,55 @@
     ViewData["Title"] = "Store";
 }
 
-<h2>Store</h2>
+<script type="text/javascript" src="~/js/LoadPartial.js"></script>
+<h2 style="text-align:center;">@Model.Name</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="StoreNavigation">
+            <table>
+                <tr>
+                    <td>
+                        Home
+                    </td>
+                    <td>
+                        Best selling
+                    </td>
+                    <td>
+                        New Arrivals
+                    </td>
+                    <td>
+                        Feedback
+                    </td>
+                    <td>
+                        @{
+                            if (Context.Session.GetInt32("UserId") == Model.Account.Id)
+                            {
+                                <a href="@Url.Action("StoreProductManagement","Store", new { userId = Model.Account.Id })">Manage Products</a>
+                            }
+                        }
+                    </td>
+                </tr>
+            </table>
 
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4" style="margin-top:100px;">
+        <div class="StoreCategories" id="LoadCategories" data-url="@Url.Action("StoreCategories", "Store") ">
 
+        </div>
+    </div>
+    <div class="StoreProducts" id="LoadProducts" data-url="@Url.Action("StoreProducts", "Store")">
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        registerAjaxLinkLoad("#LoadCategories", ".StoreCategories");
+    })
+    $(document).ready(function () {
+        registerAjaxLinkLoad("#LoadProducts", ".StoreProducts");
+    })
+</script>

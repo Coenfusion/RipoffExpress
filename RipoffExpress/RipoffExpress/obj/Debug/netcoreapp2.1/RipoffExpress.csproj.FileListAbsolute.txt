@@ -225,3 +225,5 @@ C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\
 C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\ShoppingCart\_ShoppingCartProducts.g.cshtml.cs
 C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\ShoppingCart\ShoppingCart.g.cshtml.cs
 C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\ShoppingCart\_ShoppingCartAddressBook.g.cshtml.cs
+C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Store\_StoreCategories.g.cshtml.cs
+C:\Users\gebruiker\Desktop\Ripoff\RipoffExpress\RipoffExpress\RipoffExpress\obj\Debug\netcoreapp2.1\Razor\Views\Store\_StoreProducts.g.cshtml.cs

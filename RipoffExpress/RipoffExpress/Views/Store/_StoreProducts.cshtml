@@ -1,0 +1,16 @@
+﻿@using RipoffExpress.Models;
+
+@model StoreViewModel
+
+<div id="productBox" class="col-md-8">
+    <table id="productTable">
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td><a href="@Url.Action("Product","Product", new { Id = product.Id })"><img src="~/images/uploads/product/@product.MediaUrl" alt="Product picture" style="max-width:150px;" /></a></td>
+                <td id="productName"><a href="@Url.Action("Product","Product", new { Id = product.Id })">@product.Name</a></td>
+                <td>&euro; @product.Price</td>
+            </tr>
+        }
+    </table>
+</div>

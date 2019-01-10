@@ -131,9 +131,11 @@
     <Compile Include="Interfaces\IOrderContext.cs" />
     <Compile Include="Interfaces\IProductContext.cs" />
     <Compile Include="Interfaces\IShippingAddressContext.cs" />
+    <Compile Include="Interfaces\IStoreContext.cs" />
     <Compile Include="MSSQLContext\AccountContext.cs" />
     <Compile Include="MSSQLContext\OrderContext.cs" />
     <Compile Include="MSSQLContext\ProductContext.cs" />
+    <Compile Include="MSSQLContext\StoreContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MSSQLContext\ShippingAddressContext.cs" />
   </ItemGroup>
